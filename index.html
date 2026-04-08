@@ -204,7 +204,8 @@
         }
 
         /* Silk canvas */
-        #silk-canvas {
+        #silk-canvas,
+        .silk-section-canvas {
             position: absolute;
             inset: 0;
             width: 100%;
@@ -334,8 +335,8 @@
 
     <div class="max-w-7xl mx-auto px-6 py-20 md:py-0 w-full relative z-10">
         <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <!-- Left: Text -->
-            <div class="order-2 md:order-1" data-aos="fade-up">
+            <!-- Text content: order-1 on mobile (logo, copy, CTA first), order-1 on desktop (left side) -->
+            <div class="order-1 md:order-1" data-aos="fade-up">
                 <img src="images/logo.png" alt="Meghna Dassani" class="h-14 mb-8" data-aos="fade-up" data-aos-delay="50">
                 <p class="font-sans text-sm tracking-widest uppercase text-gold mb-6" data-aos="fade-up" data-aos-delay="100">
                     A membership for women who build in healthcare
@@ -354,8 +355,8 @@
                     <p class="font-sans text-sm text-muted mt-4">$597/month &middot; Cancel anytime</p>
                 </div>
             </div>
-            <!-- Right: Image -->
-            <div class="order-1 md:order-2 parallax-hero" data-aos="fade-left" data-aos-delay="200">
+            <!-- Image: order-2 on mobile (below CTA), order-2 on desktop (right side) -->
+            <div class="order-2 md:order-2 parallax-hero" data-aos="fade-left" data-aos-delay="200">
                 <div class="hero-image-wrapper rounded-xl">
                     <img src="images/meghna-hero.jpeg"
                          alt="Dr. Meghna Dassani — dentist, author, and founder of Both/And"
@@ -520,8 +521,10 @@
 <!-- ============================================ -->
 <!-- 5. ABOUT / GUIDE SECTION -->
 <!-- ============================================ -->
-<section class="py-24 md:py-32 bg-linen">
-    <div class="max-w-6xl mx-auto px-6">
+<section class="py-24 md:py-32 bg-linen relative overflow-hidden">
+    <canvas class="silk-section-canvas" data-silk="about"></canvas>
+    <div class="absolute inset-0 z-[1]" style="background: linear-gradient(135deg, rgba(245,237,227,0.7) 0%, rgba(245,237,227,0.4) 50%, rgba(245,237,227,0.8) 100%);"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <!-- Left: Image -->
             <div data-aos="fade-right">
@@ -577,7 +580,7 @@
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-20" style="background: radial-gradient(circle, rgba(196,149,90,0.4), transparent 70%); filter: blur(60px);"></div>
     <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
         <h2 class="font-serif text-3xl md:text-5xl text-ink mb-16" data-aos="fade-up">
-            Your investment
+            Your Investment
         </h2>
         <div class="max-w-md mx-auto bg-espresso rounded-2xl p-10 md:p-12 shadow-2xl text-cream" data-aos="fade-up" data-aos-delay="100">
             <p class="font-sans text-sm tracking-widest uppercase text-gold mb-6">Both/And Membership</p>
@@ -689,8 +692,10 @@
 <!-- ============================================ -->
 <!-- 8. FINAL CTA / FOOTER -->
 <!-- ============================================ -->
-<section class="py-24 md:py-32 bg-linen">
-    <div class="max-w-3xl mx-auto px-6 text-center">
+<section class="py-24 md:py-32 bg-linen relative overflow-hidden">
+    <canvas class="silk-section-canvas" data-silk="cta"></canvas>
+    <div class="absolute inset-0 z-[1]" style="background: linear-gradient(to bottom, rgba(245,237,227,0.75) 0%, rgba(245,237,227,0.5) 50%, rgba(245,237,227,0.8) 100%);"></div>
+    <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
         <h2 class="font-serif text-3xl md:text-5xl text-ink mb-6" data-aos="fade-up">
             Stop choosing. Start building.
         </h2>
@@ -780,26 +785,9 @@
 
 <script>
     // =============================================
-    // Silk Background Canvas Animation
+    // Silk Background Canvas Animation (reusable)
     // =============================================
     (function() {
-        var canvas = document.getElementById('silk-canvas');
-        if (!canvas) return;
-        var ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        var time = 0;
-        var speed = 0.015;
-        var scale = 1.8;
-        var animId;
-
-        function resize() {
-            canvas.width = canvas.parentElement.offsetWidth;
-            canvas.height = canvas.parentElement.offsetHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
         // Simple deterministic noise
         function noise(x, y) {
             var G = 2.71828;
@@ -808,70 +796,100 @@
             return (rx * ry * (1 + x * 0.001)) % 1;
         }
 
-        function animate() {
-            var w = canvas.width, h = canvas.height;
-            if (w === 0 || h === 0) { animId = requestAnimationFrame(animate); return; }
+        function initSilkCanvas(canvas, opts) {
+            var ctx = canvas.getContext('2d');
+            if (!ctx) return;
 
-            // Warm cream base
-            ctx.fillStyle = '#FDFAF6';
-            ctx.fillRect(0, 0, w, h);
+            var time = opts.timeOffset || 0;
+            var speed = opts.speed || 0.015;
+            var scale = opts.scale || 1.8;
+            var step = opts.step || 3;
+            var goldMix = opts.goldMix || 0.4;
+            var animId;
 
-            // Draw silk pattern at reduced resolution for performance
-            var step = 3;
-            var imgData = ctx.createImageData(w, h);
-            var data = imgData.data;
-            var tOff = speed * time;
+            function resize() {
+                var parent = canvas.parentElement;
+                canvas.width = parent.offsetWidth;
+                canvas.height = parent.offsetHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
 
-            for (var x = 0; x < w; x += step) {
-                for (var y = 0; y < h; y += step) {
-                    var u = (x / w) * scale;
-                    var v = (y / h) * scale;
+            function animate() {
+                var w = canvas.width, h = canvas.height;
+                if (w === 0 || h === 0) { animId = requestAnimationFrame(animate); return; }
 
-                    var tex_y = v + 0.03 * Math.sin(8.0 * u - tOff);
-                    var pattern = 0.6 + 0.4 * Math.sin(
-                        5.0 * (u + tex_y +
-                            Math.cos(3.0 * u + 5.0 * tex_y) +
-                            0.02 * tOff) +
-                        Math.sin(20.0 * (u + tex_y - 0.1 * tOff))
-                    );
+                ctx.fillStyle = '#FDFAF6';
+                ctx.fillRect(0, 0, w, h);
 
-                    var rnd = noise(x, y);
-                    var intensity = Math.max(0, Math.min(1, pattern - rnd / 20.0 * 0.5));
+                var imgData = ctx.createImageData(w, h);
+                var data = imgData.data;
+                var tOff = speed * time;
 
-                    // Blend between cream (#FDFAF6) and warm gold tones
-                    // Gold silk: rgb(220, 195, 160) mixed with cream
-                    var r = Math.floor(253 - (253 - 220) * intensity * 0.4);
-                    var g = Math.floor(250 - (250 - 195) * intensity * 0.4);
-                    var b = Math.floor(246 - (246 - 155) * intensity * 0.4);
+                for (var x = 0; x < w; x += step) {
+                    for (var y = 0; y < h; y += step) {
+                        var u = (x / w) * scale;
+                        var v = (y / h) * scale;
 
-                    // Fill the step x step block
-                    for (var dx = 0; dx < step && x + dx < w; dx++) {
-                        for (var dy = 0; dy < step && y + dy < h; dy++) {
-                            var idx = ((y + dy) * w + (x + dx)) * 4;
-                            data[idx] = r;
-                            data[idx + 1] = g;
-                            data[idx + 2] = b;
-                            data[idx + 3] = 255;
+                        var tex_y = v + 0.03 * Math.sin(8.0 * u - tOff);
+                        var pattern = 0.6 + 0.4 * Math.sin(
+                            5.0 * (u + tex_y +
+                                Math.cos(3.0 * u + 5.0 * tex_y) +
+                                0.02 * tOff) +
+                            Math.sin(20.0 * (u + tex_y - 0.1 * tOff))
+                        );
+
+                        var rnd = noise(x, y);
+                        var intensity = Math.max(0, Math.min(1, pattern - rnd / 20.0 * 0.5));
+
+                        var r = Math.floor(253 - (253 - 220) * intensity * goldMix);
+                        var g = Math.floor(250 - (250 - 195) * intensity * goldMix);
+                        var b = Math.floor(246 - (246 - 155) * intensity * goldMix);
+
+                        for (var dx = 0; dx < step && x + dx < w; dx++) {
+                            for (var dy = 0; dy < step && y + dy < h; dy++) {
+                                var idx = ((y + dy) * w + (x + dx)) * 4;
+                                data[idx] = r;
+                                data[idx + 1] = g;
+                                data[idx + 2] = b;
+                                data[idx + 3] = 255;
+                            }
                         }
                     }
                 }
-            }
-            ctx.putImageData(imgData, 0, 0);
+                ctx.putImageData(imgData, 0, 0);
 
-            time += 1;
-            animId = requestAnimationFrame(animate);
+                time += 1;
+                animId = requestAnimationFrame(animate);
+            }
+
+            // Only animate when section is visible
+            var section = canvas.closest('section');
+            var silkObs = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting) {
+                    animate();
+                } else {
+                    if (animId) cancelAnimationFrame(animId);
+                }
+            }, { threshold: 0.05 });
+            silkObs.observe(section);
         }
 
-        // Only animate when hero is visible
-        var heroSection = document.getElementById('hero');
-        var silkObserver = new IntersectionObserver(function(entries) {
-            if (entries[0].isIntersecting) {
-                animate();
-            } else {
-                if (animId) cancelAnimationFrame(animId);
-            }
-        }, { threshold: 0.05 });
-        silkObserver.observe(heroSection);
+        // Hero canvas
+        var heroCanvas = document.getElementById('silk-canvas');
+        if (heroCanvas) initSilkCanvas(heroCanvas, { timeOffset: 0, scale: 1.8, goldMix: 0.4 });
+
+        // Section canvases — slightly different params for variety
+        var sectionCanvases = document.querySelectorAll('.silk-section-canvas');
+        sectionCanvases.forEach(function(c, i) {
+            initSilkCanvas(c, {
+                timeOffset: (i + 1) * 200,
+                scale: 2.2 + i * 0.3,
+                speed: 0.012,
+                step: 4,
+                goldMix: 0.3
+            });
+        });
     })();
 
     // Initialize AOS
@@ -890,18 +908,19 @@
         document.getElementById('scroll-progress').style.width = progress + '%';
     });
 
-    // Sticky nav — show after scrolling past hero
+    // Sticky nav — show once scrolled past ~40% of hero
     const hero = document.getElementById('hero');
     const stickyNav = document.getElementById('sticky-nav');
     const observer = new IntersectionObserver(
         ([entry]) => {
-            if (!entry.isIntersecting) {
+            // Show nav when hero is less than 60% visible (i.e. scrolled past 40%)
+            if (entry.intersectionRatio < 0.6) {
                 stickyNav.classList.add('visible');
             } else {
                 stickyNav.classList.remove('visible');
             }
         },
-        { threshold: 0.1 }
+        { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0] }
     );
     observer.observe(hero);
 
