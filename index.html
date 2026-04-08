@@ -356,7 +356,7 @@
                 </div>
             </div>
             <!-- Image: order-2 on mobile (below CTA), order-2 on desktop (right side) -->
-            <div class="order-2 md:order-2 parallax-hero" data-aos="fade-left" data-aos-delay="200">
+            <div id="hero-image" class="order-2 md:order-2 parallax-hero" data-aos="fade-up" data-aos-delay="200">
                 <div class="hero-image-wrapper rounded-xl">
                     <img src="images/meghna-hero.jpeg"
                          alt="Dr. Meghna Dassani — dentist, author, and founder of Both/And"
@@ -891,6 +891,12 @@
             });
         });
     })();
+
+    // Hero image: fade-up on mobile, fade-left on desktop
+    var heroImg = document.getElementById('hero-image');
+    if (heroImg && window.innerWidth >= 768) {
+        heroImg.setAttribute('data-aos', 'fade-left');
+    }
 
     // Initialize AOS
     AOS.init({
