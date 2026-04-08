@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Both/And — A Membership for Women Who Build in Healthcare</title>
+    <meta name="description" content="A curated membership community for women entrepreneurs in healthcare. Monthly meetups, private community, annual retreat. Led by Dr. Meghna Dassani.">
+    <meta property="og:title" content="Both/And — A Membership for Women Who Build in Healthcare">
+    <meta property="og:description" content="A curated membership community for women entrepreneurs in healthcare. Monthly meetups, private community, annual retreat. Led by Dr. Meghna Dassani.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9830;</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFAF6',
+                        ink: '#1A1A1A',
+                        gold: '#C4955A',
+                        'gold-deep': '#A87B42',
+                        espresso: '#3D2B1F',
+                        linen: '#F5EDE3',
+                        muted: '#7A6B5D',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background-color: #FDFAF6; color: #1A1A1A; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+        /* Scroll progress bar */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: #C4955A; width: 0%; z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* Sticky nav */
+        #sticky-nav {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        #sticky-nav.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* FAQ accordion */
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .faq-answer.open { max-height: 500px; }
+
+        /* Parallax */
+        .parallax-hero {
+            will-change: transform;
+        }
+
+        /* CTA hover */
+        .cta-btn {
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            transform: scale(1.03);
+            background-color: #A87B42;
+        }
+
+        /* Card hover */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            border-left: 2px solid #C4955A;
+            padding-left: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #1A1A1A;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- Sticky Navigation -->
+<nav id="sticky-nav" class="fixed top-0 left-0 w-full bg-cream/95 backdrop-blur-sm z-50 border-b border-linen">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <span class="font-serif italic text-2xl text-ink">Both/And</span>
+        <a href="https://meghnadassani.mykajabi.com/offers/FGJoHSeS/checkout" target="_blank" rel="noopener"
+           class="cta-btn bg-gold text-white font-sans font-semibold text-sm px-6 py-2.5 rounded-full">
+            Join Now
+        </a>
+    </div>
+</nav>
+
+<!-- ============================================ -->
+<!-- 1. HERO SECTION -->
+<!-- ============================================ -->
+<section id="hero" class="min-h-screen flex items-center relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-20 md:py-0 w-full">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <!-- Left: Text -->
+            <div class="order-2 md:order-1" data-aos="fade-up">
+                <p class="font-sans text-sm tracking-widest uppercase text-muted mb-6" data-aos="fade-up" data-aos-delay="100">
+                    A membership for women who build in healthcare
+                </p>
+                <h1 class="font-serif italic text-5xl md:text-7xl text-ink mb-6 leading-tight" data-aos="fade-up" data-aos-delay="200">
+                    Both/And
+                </h1>
+                <p class="font-sans text-lg md:text-xl text-muted leading-relaxed mb-10 max-w-lg" data-aos="fade-up" data-aos-delay="300">
+                    Your third space. For the woman who heals and the woman who builds. You were never meant to choose.
+                </p>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://meghnadassani.mykajabi.com/offers/FGJoHSeS/checkout" target="_blank" rel="noopener"
+                       class="cta-btn inline-block bg-gold text-white font-sans font-semibold text-lg px-10 py-4 rounded-full shadow-lg">
+                        I Want In
+                    </a>
+                    <p class="font-sans text-sm text-muted mt-4">$597/month &middot; Cancel anytime</p>
+                </div>
+            </div>
+            <!-- Right: Image -->
+            <div class="order-1 md:order-2 parallax-hero" data-aos="fade-left" data-aos-delay="200">
+                <div class="relative">
+                    <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2154717048/settings_images/a08b286-0a3a-5ee5-e037-b77bfa07f0b_meghna-hero.jpg"
+                         alt="Dr. Meghna Dassani — dentist, author, and founder of Both/And"
+                         loading="lazy"
+                         class="w-full rounded-xl shadow-2xl object-cover"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden w-full aspect-[3/4] rounded-xl bg-linen items-center justify-center text-muted font-serif italic text-2xl">
+                        Dr. Meghna Dassani
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 2. PROBLEM SECTION -->
+<!-- ============================================ -->
+<section class="bg-linen py-24 md:py-32">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+        <h2 class="font-serif text-3xl md:text-5xl text-ink mb-12" data-aos="fade-up">
+            Nobody speaks both of your languages.
+        </h2>
+        <div class="text-left space-y-6 font-sans text-lg text-ink leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+            <p>
+                You built a thriving practice. You employ a team. You carry the weight of other people's health in your hands every single day. And somewhere along the way, you stopped having anyone to talk to about what that actually costs you.
+            </p>
+            <p>
+                Your clinical peers don't understand the business side. Your entrepreneur friends don't understand why healthcare is different. Your family sees the success and doesn't get why you're still stressed.
+            </p>
+        </div>
+
+        <div class="mt-14 space-y-8 text-left max-w-xl mx-auto">
+            <div class="pull-quote" data-aos="fade-up" data-aos-delay="100">
+                "I don't have anyone who understands what this is actually like."
+            </div>
+            <div class="pull-quote" data-aos="fade-up" data-aos-delay="200">
+                "It just doesn't seem possible to do it all."
+            </div>
+            <div class="pull-quote" data-aos="fade-up" data-aos-delay="300">
+                "Everyone thinks I have it figured out."
+            </div>
+            <div class="pull-quote" data-aos="fade-up" data-aos-delay="400">
+                "I'm surrounded by people and I've never felt more alone in a decision."
+            </div>
+        </div>
+
+        <p class="mt-14 font-sans text-lg text-ink font-semibold leading-relaxed max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            You don't need another course. You don't need another certification. You need a room full of women who look at you and say: <em class="font-serif">Yeah. I know exactly what that feels like.</em>
+        </p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 3. WHAT'S INSIDE SECTION -->
+<!-- ============================================ -->
+<section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-serif text-3xl md:text-5xl text-ink text-center mb-16" data-aos="fade-up">
+            What you'll find in the room
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Card 1 -->
+            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center mb-6">
+                    <div class="w-4 h-4 rounded-full bg-gold"></div>
+                </div>
+                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Monthly Virtual Meetups</h3>
+                <p class="font-sans text-lg text-muted leading-relaxed">
+                    Rotating formats: hot seat coaching, guest experts, Meghna-led workshops, and open conversation. 90 minutes, once a month, on a consistent schedule you can plan around.
+                </p>
+            </div>
+            <!-- Card 2 -->
+            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 border-2 border-gold rotate-45"></div>
+                </div>
+                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Private Online Community</h3>
+                <p class="font-sans text-lg text-muted leading-relaxed">
+                    A calm, intentional space where real conversations happen between meetups. Ask for advice. Share a win. Vent about a terrible Tuesday. Get responses from women who actually understand.
+                </p>
+            </div>
+            <!-- Card 3 -->
+            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 flex items-center justify-center mb-6">
+                    <div class="w-8 h-8 border-2 border-gold rounded-sm"></div>
+                </div>
+                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Annual In-Person Retreat</h3>
+                <p class="font-sans text-lg text-muted leading-relaxed">
+                    Two days together in person. Part strategic planning, part deep connection, part restoration. Included in your membership.
+                </p>
+            </div>
+            <!-- Card 4 -->
+            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 flex items-center justify-center mb-6">
+                    <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                        <polygon points="20,2 37,12 37,28 20,38 3,28 3,12" stroke="#C4955A" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Meghna's Facilitation</h3>
+                <p class="font-sans text-lg text-muted leading-relaxed">
+                    Every meetup is personally facilitated by Meghna. This is not a community that runs on autopilot. Her two decades of experience shape every interaction.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 4. "IS THIS YOUR ROOM?" SECTION -->
+<!-- ============================================ -->
+<section class="py-24 md:py-32 bg-cream border-t border-gold/30">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-serif text-3xl md:text-5xl text-ink text-center mb-16" data-aos="fade-up">
+            Both/And is for the woman who&hellip;
+        </h2>
+        <div class="space-y-8">
+            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="0">
+                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
+                <p class="font-serif italic text-xl text-ink leading-relaxed">Has built something she's proud of — and still feels a quiet loneliness at the top</p>
+            </div>
+            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="100">
+                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
+                <p class="font-serif italic text-xl text-ink leading-relaxed">Wants strategic peers who understand both the clinical and the business side</p>
+            </div>
+            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="200">
+                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
+                <p class="font-serif italic text-xl text-ink leading-relaxed">Is looking for genuine connection, not networking — women who will tell her the truth</p>
+            </div>
+            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="300">
+                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
+                <p class="font-serif italic text-xl text-ink leading-relaxed">Is ready to invest in herself the way she invests in her practice, her team, and everyone else</p>
+            </div>
+            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="400">
+                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
+                <p class="font-serif italic text-xl text-ink leading-relaxed">Is done choosing between the woman who heals and the woman who builds</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 5. ABOUT / GUIDE SECTION -->
+<!-- ============================================ -->
+<section class="py-24 md:py-32 bg-linen">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <!-- Left: Image -->
+            <div data-aos="fade-right">
+                <img src="https://www.dassanidentistry.com/wp-content/themes/dassanidentistry/img/dr-dassani.jpg"
+                     alt="Dr. Meghna Dassani — Your guide for Both/And"
+                     loading="lazy"
+                     class="w-full max-w-md mx-auto rounded-xl shadow-xl object-cover"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="hidden w-full max-w-md mx-auto aspect-[3/4] rounded-xl bg-cream items-center justify-center text-muted font-serif italic text-2xl shadow-xl">
+                    Dr. Meghna Dassani
+                </div>
+            </div>
+            <!-- Right: Text -->
+            <div data-aos="fade-up" data-aos-delay="100">
+                <p class="font-sans text-sm tracking-widest uppercase text-muted mb-4">Your guide</p>
+                <h2 class="font-serif text-3xl md:text-5xl text-ink mb-8">Dr. Meghna Dassani</h2>
+                <div class="space-y-6 font-sans text-lg text-muted leading-relaxed">
+                    <p>
+                        Dentist. Airway health pioneer. Bestselling author. Podcaster. Forbes Business Council member. And a woman who spent two decades building something extraordinary — while quietly wondering if she was enough.
+                    </p>
+                    <p>
+                        Meghna didn't create Both/And because she had it all figured out. She created it because she didn't — and she knew she wasn't alone. This membership is the room she wished existed when she was building her practice, raising her family, and trying to hold it all together.
+                    </p>
+                    <p>
+                        Both/And is where she brings everything she's learned — not as a guru, but as a guide who still sits in the same chair you do.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 6. PRICING / CTA SECTION -->
+<!-- ============================================ -->
+<section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="font-serif text-3xl md:text-5xl text-ink mb-16" data-aos="fade-up">
+            Your investment
+        </h2>
+        <div class="max-w-md mx-auto bg-espresso rounded-2xl p-10 md:p-12 shadow-2xl text-cream" data-aos="fade-up" data-aos-delay="100">
+            <p class="font-sans text-sm tracking-widest uppercase text-gold mb-6">Both/And Membership</p>
+            <div class="mb-8">
+                <span class="font-serif text-5xl md:text-6xl text-cream">$597</span>
+                <span class="font-sans text-lg text-cream/70">/month</span>
+            </div>
+            <div class="w-16 h-px bg-gold mx-auto mb-8"></div>
+            <ul class="text-left space-y-4 mb-10">
+                <li class="flex items-start gap-3">
+                    <span class="text-gold mt-1 flex-shrink-0">&#9830;</span>
+                    <span class="font-sans text-base text-cream/90">Monthly virtual meetups with Meghna</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-gold mt-1 flex-shrink-0">&#9830;</span>
+                    <span class="font-sans text-base text-cream/90">Private online community access</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-gold mt-1 flex-shrink-0">&#9830;</span>
+                    <span class="font-sans text-base text-cream/90">Annual in-person retreat (included)</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-gold mt-1 flex-shrink-0">&#9830;</span>
+                    <span class="font-sans text-base text-cream/90">Direct access to Meghna's facilitation</span>
+                </li>
+            </ul>
+            <a href="https://meghnadassani.mykajabi.com/offers/FGJoHSeS/checkout" target="_blank" rel="noopener"
+               class="cta-btn block w-full bg-gold text-espresso font-sans font-bold text-lg py-4 rounded-full text-center shadow-lg">
+                Join Both/And
+            </a>
+            <p class="font-sans text-sm text-cream/50 mt-4">Cancel anytime. No contracts.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 7. FAQ SECTION -->
+<!-- ============================================ -->
+<section class="py-24 md:py-32 bg-cream">
+    <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-serif text-3xl md:text-5xl text-ink text-center mb-16" data-aos="fade-up">
+            Questions you might have
+        </h2>
+        <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+            <!-- FAQ 1 -->
+            <div class="faq-item border-b border-linen">
+                <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-sans font-semibold text-lg text-ink pr-4">Who is this for?</span>
+                    <span class="faq-icon text-gold text-2xl font-light flex-shrink-0 transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="font-sans text-base text-muted leading-relaxed pb-6">
+                        Both/And is specifically designed for women entrepreneurs in healthcare — dentists, physicians, practice owners, and clinical leaders who also run businesses. If you sit at the intersection of clinical work and entrepreneurship, this is your room.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item border-b border-linen">
+                <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-sans font-semibold text-lg text-ink pr-4">What's the time commitment?</span>
+                    <span class="faq-icon text-gold text-2xl font-light flex-shrink-0 transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="font-sans text-base text-muted leading-relaxed pb-6">
+                        One 90-minute virtual meetup per month, plus access to the private community at whatever pace works for you. The annual retreat is two days. We designed this for busy women who don't have time for another obligation — this should feel like oxygen, not homework.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item border-b border-linen">
+                <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-sans font-semibold text-lg text-ink pr-4">Is there a contract?</span>
+                    <span class="faq-icon text-gold text-2xl font-light flex-shrink-0 transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="font-sans text-base text-muted leading-relaxed pb-6">
+                        No. Both/And is a monthly membership at $597/month. You can cancel anytime. We want you here because you want to be here.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="faq-item border-b border-linen">
+                <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-sans font-semibold text-lg text-ink pr-4">What makes this different from other communities?</span>
+                    <span class="faq-icon text-gold text-2xl font-light flex-shrink-0 transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="font-sans text-base text-muted leading-relaxed pb-6">
+                        Most communities are either clinical or entrepreneurial. Both/And is the only space designed for women who live in both worlds simultaneously. And it's not run by a community manager — Meghna personally facilitates every session.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="faq-item border-b border-linen">
+                <button class="faq-toggle w-full flex items-center justify-between py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="font-sans font-semibold text-lg text-ink pr-4">What if I'm not sure it's right for me?</span>
+                    <span class="faq-icon text-gold text-2xl font-light flex-shrink-0 transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p class="font-sans text-base text-muted leading-relaxed pb-6">
+                        Trust the instinct that brought you here. If you read the words on this page and thought "that's me," it's right for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 8. FINAL CTA / FOOTER -->
+<!-- ============================================ -->
+<section class="py-24 md:py-32 bg-linen">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="font-serif text-3xl md:text-5xl text-ink mb-6" data-aos="fade-up">
+            Stop choosing. Start building.
+        </h2>
+        <p class="font-sans text-xl text-muted mb-10" data-aos="fade-up" data-aos-delay="100">
+            Both/And is open. Your room is ready.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <a href="https://meghnadassani.mykajabi.com/offers/FGJoHSeS/checkout" target="_blank" rel="noopener"
+               class="cta-btn inline-block bg-gold text-white font-sans font-bold text-lg px-12 py-4 rounded-full shadow-lg">
+                Join Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-cream py-8 border-t border-linen">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="font-sans text-sm text-muted">
+            &copy; 2026 Sleep. Breathe. Dream LLC &nbsp;&middot;&nbsp;
+            <a href="https://meghnadassani.mykajabi.com/pages/terms" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Terms</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://meghnadassani.mykajabi.com/pages/privacy-policy" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Privacy Policy</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 80,
+    });
+
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        document.getElementById('scroll-progress').style.width = progress + '%';
+    });
+
+    // Sticky nav — show after scrolling past hero
+    const hero = document.getElementById('hero');
+    const stickyNav = document.getElementById('sticky-nav');
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (!entry.isIntersecting) {
+                stickyNav.classList.add('visible');
+            } else {
+                stickyNav.classList.remove('visible');
+            }
+        },
+        { threshold: 0.1 }
+    );
+    observer.observe(hero);
+
+    // Parallax effect on hero image
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxEl = document.querySelector('.parallax-hero');
+        if (parallaxEl && scrolled < window.innerHeight) {
+            parallaxEl.style.transform = 'translateY(' + scrolled * 0.15 + 'px)';
+        }
+    });
+
+    // FAQ toggle
+    function toggleFaq(button) {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = answer.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-icon').forEach(i => {
+            i.textContent = '+';
+            i.style.transform = 'rotate(0deg)';
+        });
+
+        // Open clicked (if it was closed)
+        if (!isOpen) {
+            answer.classList.add('open');
+            icon.textContent = '−';
+            icon.style.transform = 'rotate(180deg)';
+        }
+    }
+</script>
+
+</body>
+</html>
