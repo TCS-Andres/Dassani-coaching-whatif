@@ -171,6 +171,37 @@
         .testimonial-pagination button:hover:not(.active) {
             background: rgba(196, 149, 90, 0.3);
         }
+
+        /* Text Rotate Animation */
+        .text-rotate-wrapper {
+            display: inline-flex;
+            overflow: hidden;
+            vertical-align: bottom;
+            position: relative;
+            height: 1.25em;
+            min-width: 2ch;
+        }
+        .text-rotate-word {
+            display: inline-flex;
+            position: absolute;
+            left: 0; top: 0;
+            white-space: nowrap;
+        }
+        .text-rotate-char {
+            display: inline-block;
+            transform: translateY(110%);
+            opacity: 0;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.35s ease;
+        }
+        .text-rotate-char.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .text-rotate-char.exit {
+            transform: translateY(-120%);
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -266,6 +297,23 @@
         <p class="mt-14 font-sans text-lg text-ink font-semibold leading-relaxed max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
             You don't need another course. You don't need another certification. You need a room full of women who look at you and say: <em class="font-serif">Yeah. I know exactly what that feels like.</em>
         </p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- TEXT ROTATE HIGHLIGHT -->
+<!-- ============================================ -->
+<section class="py-16 md:py-20 bg-espresso overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+        <p class="font-serif text-3xl md:text-5xl lg:text-6xl text-cream leading-tight" data-aos="fade-up">
+            You are
+            <span class="text-rotate-wrapper">
+                <span id="textRotateTarget" class="text-rotate-word"></span>
+            </span>
+        </p>
+        <div class="inline-block bg-gold rounded-full px-6 py-2 mt-8" data-aos="fade-up" data-aos-delay="200">
+            <span id="textRotateStatic" class="font-sans text-sm md:text-base font-semibold text-espresso tracking-wide uppercase"></span>
+        </div>
     </div>
 </section>
 
@@ -677,6 +725,79 @@
             icon.style.transform = 'rotate(180deg)';
         }
     }
+
+    // =============================================
+    // Text Rotate Animation
+    // =============================================
+    (function() {
+        const phrases = [
+            { rotating: 'strong.', tagline: 'Your strength built this — own it' },
+            { rotating: 'capable.', tagline: 'You already have what it takes' },
+            { rotating: 'enough.', tagline: 'Exactly as you are, right now' },
+            { rotating: 'not alone.', tagline: 'Your room is waiting' },
+            { rotating: 'both.', tagline: 'The healer and the builder — that\'s you' },
+        ];
+
+        const target = document.getElementById('textRotateTarget');
+        const tagline = document.getElementById('textRotateStatic');
+        if (!target || !tagline) return;
+
+        let currentIndex = 0;
+        const STAGGER = 30; // ms between each character
+        const HOLD = 2200; // ms to display before transitioning
+        const EXIT_STAGGER = 20;
+
+        function renderPhrase(index) {
+            const phrase = phrases[index];
+            tagline.textContent = phrase.tagline;
+
+            // Clear and build characters
+            target.innerHTML = '';
+            const chars = Array.from(phrase.rotating);
+            const spans = chars.map(function(ch) {
+                var span = document.createElement('span');
+                span.className = 'text-rotate-char';
+                span.textContent = ch === ' ' ? '\u00A0' : ch;
+                // Gold highlight for the rotating word
+                span.style.color = '#C4955A';
+                target.appendChild(span);
+                return span;
+            });
+
+            // Measure width and set wrapper
+            requestAnimationFrame(function() {
+                var wrapperWidth = target.scrollWidth;
+                target.parentElement.style.width = wrapperWidth + 'px';
+            });
+
+            // Stagger entrance
+            spans.forEach(function(span, i) {
+                setTimeout(function() {
+                    span.classList.add('visible');
+                }, i * STAGGER);
+            });
+
+            // Exit after hold duration
+            var totalEntranceTime = spans.length * STAGGER + 450;
+            setTimeout(function() {
+                spans.forEach(function(span, i) {
+                    setTimeout(function() {
+                        span.classList.remove('visible');
+                        span.classList.add('exit');
+                    }, i * EXIT_STAGGER);
+                });
+
+                // After exit completes, show next
+                setTimeout(function() {
+                    currentIndex = (currentIndex + 1) % phrases.length;
+                    renderPhrase(currentIndex);
+                }, spans.length * EXIT_STAGGER + 350);
+            }, totalEntranceTime + HOLD);
+        }
+
+        // Start with a slight delay
+        setTimeout(function() { renderPhrase(0); }, 500);
+    })();
 
     // =============================================
     // Glass Testimonial Stack
