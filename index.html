@@ -250,6 +250,15 @@
             animation: float-slow 18s ease-in-out infinite reverse;
         }
 
+        /* Hero image float */
+        @keyframes hero-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .hero-float {
+            animation: hero-float 5s ease-in-out infinite;
+        }
+
         /* Hero image glow */
         .hero-image-wrapper {
             position: relative;
@@ -356,7 +365,7 @@
                 </div>
             </div>
             <!-- Image: order-2 on mobile (below CTA), order-2 on desktop (right side) -->
-            <div id="hero-image" class="order-2 md:order-2 parallax-hero" data-aos="fade-up" data-aos-delay="200">
+            <div id="hero-image" class="order-2 md:order-2 hero-float">
                 <div class="hero-image-wrapper rounded-xl">
                     <img src="images/meghna-hero.jpeg"
                          alt="Dr. Meghna Dassani — dentist, author, and founder of Both/And"
@@ -891,12 +900,6 @@
             });
         });
     })();
-
-    // Hero image: fade-up on mobile, fade-left on desktop
-    var heroImg = document.getElementById('hero-image');
-    if (heroImg && window.innerWidth >= 768) {
-        heroImg.setAttribute('data-aos', 'fade-left');
-    }
 
     // Initialize AOS
     AOS.init({
