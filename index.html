@@ -202,6 +202,99 @@
             transform: translateY(-120%);
             opacity: 0;
         }
+
+        /* Silk canvas */
+        #silk-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* Floating orbs */
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.05); }
+            66% { transform: translate(-20px, 15px) scale(0.95); }
+        }
+        @keyframes float-slower {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40px, 25px) scale(1.08); }
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+            will-change: transform;
+        }
+        .orb-1 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(196,149,90,0.35), transparent 70%);
+            top: -10%; right: 10%;
+            animation: float-slow 12s ease-in-out infinite;
+        }
+        .orb-2 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(245,237,227,0.5), transparent 70%);
+            bottom: 10%; left: -5%;
+            animation: float-slower 15s ease-in-out infinite;
+        }
+        .orb-3 {
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(168,123,66,0.25), transparent 70%);
+            top: 40%; left: 30%;
+            animation: float-slow 18s ease-in-out infinite reverse;
+        }
+
+        /* Hero image glow */
+        .hero-image-wrapper {
+            position: relative;
+        }
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #C4955A, #F5EDE3, #A87B42, #FDFAF6);
+            background-size: 300% 300%;
+            animation: gradient-shift 6s ease infinite;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 60px rgba(61,43,31,0.2), 0 0 80px rgba(196,149,90,0.15);
+            pointer-events: none;
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Section gradient dividers */
+        .gradient-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C4955A, transparent);
+            opacity: 0.3;
+        }
+
+        /* Shimmer on CTA */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .cta-shimmer {
+            background: linear-gradient(110deg, #C4955A 0%, #C4955A 40%, #e8c896 50%, #C4955A 60%, #C4955A 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -227,12 +320,24 @@
 <!-- 1. HERO SECTION -->
 <!-- ============================================ -->
 <section id="hero" class="min-h-screen flex items-center relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 py-20 md:py-0 w-full">
+    <!-- Silk animated canvas background -->
+    <canvas id="silk-canvas"></canvas>
+
+    <!-- Gradient overlays for depth -->
+    <div class="absolute inset-0 z-[1]" style="background: radial-gradient(ellipse at 20% 50%, rgba(253,250,246,0.9) 0%, rgba(253,250,246,0.6) 40%, transparent 70%);"></div>
+    <div class="absolute inset-0 z-[1]" style="background: linear-gradient(to bottom, rgba(253,250,246,0.95) 0%, rgba(253,250,246,0.4) 30%, rgba(253,250,246,0.7) 100%);"></div>
+
+    <!-- Floating orbs -->
+    <div class="orb orb-1 z-[2]"></div>
+    <div class="orb orb-2 z-[2]"></div>
+    <div class="orb orb-3 z-[2]"></div>
+
+    <div class="max-w-7xl mx-auto px-6 py-20 md:py-0 w-full relative z-10">
         <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <!-- Left: Text -->
             <div class="order-2 md:order-1" data-aos="fade-up">
                 <img src="images/logo.png" alt="Meghna Dassani" class="h-14 mb-8" data-aos="fade-up" data-aos-delay="50">
-                <p class="font-sans text-sm tracking-widest uppercase text-muted mb-6" data-aos="fade-up" data-aos-delay="100">
+                <p class="font-sans text-sm tracking-widest uppercase text-gold mb-6" data-aos="fade-up" data-aos-delay="100">
                     A membership for women who build in healthcare
                 </p>
                 <h1 class="font-serif italic text-5xl md:text-7xl text-ink mb-6 leading-tight" data-aos="fade-up" data-aos-delay="200">
@@ -243,7 +348,7 @@
                 </p>
                 <div data-aos="fade-up" data-aos-delay="400">
                     <a href="https://meghnadassani.mykajabi.com/offers/FGJoHSeS/checkout" target="_blank" rel="noopener"
-                       class="cta-btn inline-block bg-gold text-white font-sans font-semibold text-lg px-10 py-4 rounded-full shadow-lg">
+                       class="cta-shimmer inline-block text-white font-sans font-semibold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300" style="box-shadow: 0 8px 30px rgba(196,149,90,0.35);">
                         I Want In
                     </a>
                     <p class="font-sans text-sm text-muted mt-4">$597/month &middot; Cancel anytime</p>
@@ -251,15 +356,18 @@
             </div>
             <!-- Right: Image -->
             <div class="order-1 md:order-2 parallax-hero" data-aos="fade-left" data-aos-delay="200">
-                <div class="relative">
+                <div class="hero-image-wrapper rounded-xl">
                     <img src="images/meghna-hero.jpeg"
                          alt="Dr. Meghna Dassani — dentist, author, and founder of Both/And"
                          loading="lazy"
-                         class="w-full rounded-xl shadow-2xl object-cover">
+                         class="w-full rounded-xl object-cover relative z-[1]">
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Bottom gradient fade into next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 z-10" style="background: linear-gradient(to bottom, transparent, #F5EDE3);"></div>
 </section>
 
 <!-- ============================================ -->
@@ -317,11 +425,15 @@
     </div>
 </section>
 
+<div class="gradient-divider"></div>
+
 <!-- ============================================ -->
 <!-- 3. WHAT'S INSIDE SECTION -->
 <!-- ============================================ -->
-<section class="py-24 md:py-32 bg-cream">
-    <div class="max-w-6xl mx-auto px-6">
+<section class="py-24 md:py-32 bg-cream relative">
+    <!-- Subtle background texture -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#C4955A 1px, transparent 1px); background-size: 32px 32px;"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
         <h2 class="font-serif text-3xl md:text-5xl text-ink text-center mb-16" data-aos="fade-up">
             What you'll find in the room
         </h2>
@@ -460,8 +572,10 @@
 <!-- ============================================ -->
 <!-- 6. PRICING / CTA SECTION -->
 <!-- ============================================ -->
-<section class="py-24 md:py-32 bg-cream">
-    <div class="max-w-6xl mx-auto px-6 text-center">
+<section class="py-24 md:py-32 bg-cream relative overflow-hidden">
+    <!-- Glow behind pricing card -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-20" style="background: radial-gradient(circle, rgba(196,149,90,0.4), transparent 70%); filter: blur(60px);"></div>
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
         <h2 class="font-serif text-3xl md:text-5xl text-ink mb-16" data-aos="fade-up">
             Your investment
         </h2>
@@ -585,7 +699,7 @@
         </p>
         <div data-aos="fade-up" data-aos-delay="200">
             <a href="https://meghnadassani.mykajabi.com/offers/FGJoHSeS/checkout" target="_blank" rel="noopener"
-               class="cta-btn inline-block bg-gold text-white font-sans font-bold text-lg px-12 py-4 rounded-full shadow-lg">
+               class="cta-shimmer inline-block text-white font-sans font-bold text-lg px-12 py-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300" style="box-shadow: 0 8px 30px rgba(196,149,90,0.35);">
                 Join Now
             </a>
         </div>
@@ -665,6 +779,101 @@
 </footer>
 
 <script>
+    // =============================================
+    // Silk Background Canvas Animation
+    // =============================================
+    (function() {
+        var canvas = document.getElementById('silk-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        var time = 0;
+        var speed = 0.015;
+        var scale = 1.8;
+        var animId;
+
+        function resize() {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Simple deterministic noise
+        function noise(x, y) {
+            var G = 2.71828;
+            var rx = G * Math.sin(G * x * 0.01);
+            var ry = G * Math.sin(G * y * 0.01);
+            return (rx * ry * (1 + x * 0.001)) % 1;
+        }
+
+        function animate() {
+            var w = canvas.width, h = canvas.height;
+            if (w === 0 || h === 0) { animId = requestAnimationFrame(animate); return; }
+
+            // Warm cream base
+            ctx.fillStyle = '#FDFAF6';
+            ctx.fillRect(0, 0, w, h);
+
+            // Draw silk pattern at reduced resolution for performance
+            var step = 3;
+            var imgData = ctx.createImageData(w, h);
+            var data = imgData.data;
+            var tOff = speed * time;
+
+            for (var x = 0; x < w; x += step) {
+                for (var y = 0; y < h; y += step) {
+                    var u = (x / w) * scale;
+                    var v = (y / h) * scale;
+
+                    var tex_y = v + 0.03 * Math.sin(8.0 * u - tOff);
+                    var pattern = 0.6 + 0.4 * Math.sin(
+                        5.0 * (u + tex_y +
+                            Math.cos(3.0 * u + 5.0 * tex_y) +
+                            0.02 * tOff) +
+                        Math.sin(20.0 * (u + tex_y - 0.1 * tOff))
+                    );
+
+                    var rnd = noise(x, y);
+                    var intensity = Math.max(0, Math.min(1, pattern - rnd / 20.0 * 0.5));
+
+                    // Blend between cream (#FDFAF6) and warm gold tones
+                    // Gold silk: rgb(220, 195, 160) mixed with cream
+                    var r = Math.floor(253 - (253 - 220) * intensity * 0.4);
+                    var g = Math.floor(250 - (250 - 195) * intensity * 0.4);
+                    var b = Math.floor(246 - (246 - 155) * intensity * 0.4);
+
+                    // Fill the step x step block
+                    for (var dx = 0; dx < step && x + dx < w; dx++) {
+                        for (var dy = 0; dy < step && y + dy < h; dy++) {
+                            var idx = ((y + dy) * w + (x + dx)) * 4;
+                            data[idx] = r;
+                            data[idx + 1] = g;
+                            data[idx + 2] = b;
+                            data[idx + 3] = 255;
+                        }
+                    }
+                }
+            }
+            ctx.putImageData(imgData, 0, 0);
+
+            time += 1;
+            animId = requestAnimationFrame(animate);
+        }
+
+        // Only animate when hero is visible
+        var heroSection = document.getElementById('hero');
+        var silkObserver = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                animate();
+            } else {
+                if (animId) cancelAnimationFrame(animId);
+            }
+        }, { threshold: 0.05 });
+        silkObserver.observe(heroSection);
+    })();
+
     // Initialize AOS
     AOS.init({
         duration: 800,
