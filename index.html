@@ -57,6 +57,15 @@
             top: 0;
         }
 
+        /* Mobile sticky footer CTA */
+        #mobile-sticky-cta {
+            bottom: -80px;
+            transition: bottom 0.3s ease;
+        }
+        #mobile-sticky-cta.visible {
+            bottom: 0;
+        }
+
         /* FAQ accordion */
         .faq-answer {
             max-height: 0; overflow: hidden;
@@ -790,6 +799,20 @@
     </div>
 </footer>
 
+<!-- Mobile Sticky Footer CTA (hidden on desktop) -->
+<div id="mobile-sticky-cta" class="fixed left-0 w-full z-50 md:hidden">
+    <div class="bg-cream/95 backdrop-blur-sm border-t border-gold/20 px-5 py-3 flex items-center justify-between">
+        <div>
+            <p class="font-serif italic text-lg text-ink leading-tight">Both/And</p>
+            <p class="font-sans text-xs text-muted">$597/mo · Cancel anytime</p>
+        </div>
+        <a href="https://meghnadassani.mykajabi.com/offers/FGJoHSeS/checkout" target="_blank" rel="noopener"
+           class="cta-shimmer text-white font-sans font-semibold text-sm px-6 py-2.5 rounded-full shadow-md">
+            Join Both/And
+        </a>
+    </div>
+</div>
+
 <script>
     // =============================================
     // Silk Background Canvas Animation (reusable)
@@ -915,13 +938,16 @@
         document.getElementById('scroll-progress').style.width = progress + '%';
     });
 
-    // Sticky nav — show once scrolled 300px (works reliably on all devices)
+    // Sticky nav + mobile footer CTA — show once scrolled 300px
     const stickyNav = document.getElementById('sticky-nav');
+    const mobileCta = document.getElementById('mobile-sticky-cta');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             stickyNav.classList.add('visible');
+            if (mobileCta) mobileCta.classList.add('visible');
         } else {
             stickyNav.classList.remove('visible');
+            if (mobileCta) mobileCta.classList.remove('visible');
         }
     }, { passive: true });
 
