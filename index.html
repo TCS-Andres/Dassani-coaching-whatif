@@ -98,6 +98,79 @@
             font-size: 1.25rem;
             color: #1A1A1A;
         }
+
+        /* Glass Testimonial Stack */
+        .testimonials-stack {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto;
+            min-height: 340px;
+        }
+        .testimonial-card {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            border-radius: 1rem;
+            background: rgba(253, 250, 246, 0.65);
+            border: 1px solid rgba(196, 149, 90, 0.2);
+            box-shadow: 0 8px 32px rgba(61, 43, 31, 0.08), 0 1px 2px rgba(61, 43, 31, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            cursor: grab;
+            user-select: none;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity;
+        }
+        .testimonial-card.is-dragging {
+            cursor: grabbing;
+            transition: none;
+        }
+        .testimonial-card .card-avatar {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 600; font-size: 15px;
+            flex-shrink: 0;
+        }
+        .testimonial-card .card-tag {
+            font-size: 11px; padding: 3px 10px; border-radius: 6px;
+            font-family: 'DM Sans', sans-serif; font-weight: 500;
+        }
+        .testimonial-card .card-tag.featured {
+            background: rgba(196, 149, 90, 0.18);
+            color: #A87B42;
+            border: 1px solid rgba(196, 149, 90, 0.3);
+        }
+        .testimonial-card .card-tag.default {
+            background: #F5EDE3;
+            color: #7A6B5D;
+        }
+        .testimonial-card .card-stat {
+            display: flex; align-items: center; gap: 5px;
+            font-size: 12px; color: #7A6B5D;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .testimonial-card .card-stat svg {
+            width: 14px; height: 14px; stroke: #C4955A;
+        }
+        .testimonial-pagination {
+            display: flex; gap: 8px; justify-content: center;
+            position: absolute; bottom: 0; left: 0; right: 0;
+        }
+        .testimonial-pagination button {
+            width: 10px; height: 10px; border-radius: 50%;
+            border: 1.5px solid #C4955A; background: transparent;
+            cursor: pointer; padding: 0;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .testimonial-pagination button.active {
+            background: #C4955A;
+            transform: scale(1.25);
+        }
+        .testimonial-pagination button:hover:not(.active) {
+            background: rgba(196, 149, 90, 0.3);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -318,6 +391,25 @@
 </section>
 
 <!-- ============================================ -->
+<!-- TESTIMONIALS SECTION -->
+<!-- ============================================ -->
+<section class="py-24 md:py-32 bg-linen relative overflow-hidden">
+    <!-- Subtle warm gradient background -->
+    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse at 30% 50%, rgba(196,149,90,0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(245,237,227,0.4) 0%, transparent 50%);"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <p class="font-sans text-sm tracking-widest uppercase text-muted mb-4">From women in the room</p>
+            <h2 class="font-serif text-3xl md:text-5xl text-ink">&ldquo;This is the room I didn&rsquo;t know I needed.&rdquo;</h2>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonials-stack" id="testimonialStack">
+                <!-- Cards injected by JS -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
 <!-- 6. PRICING / CTA SECTION -->
 <!-- ============================================ -->
 <section class="py-24 md:py-32 bg-cream">
@@ -469,35 +561,35 @@
             <p class="font-sans text-lg text-muted mb-10 max-w-lg mx-auto">Behind the scenes of building a practice, a brand, and a life that honors both.</p>
         </div>
 
-        <!-- Instagram embed grid — 3 recent posts -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12" data-aos="fade-up" data-aos-delay="100">
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/drmeghnadassani/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.06); margin:0; max-width:100%; min-width:280px; padding:0; width:100%;">
-                <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener" class="block aspect-square bg-linen rounded-xl overflow-hidden group relative">
-                    <div class="w-full h-full flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:bg-gold/10">
-                        <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        <span class="font-serif italic text-ink text-lg">Latest Post</span>
-                        <span class="font-sans text-sm text-muted mt-2">Tap to view on Instagram</span>
-                    </div>
-                </a>
-            </blockquote>
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/drmeghnadassani/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.06); margin:0; max-width:100%; min-width:280px; padding:0; width:100%;">
-                <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener" class="block aspect-square bg-linen rounded-xl overflow-hidden group relative">
-                    <div class="w-full h-full flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:bg-gold/10">
-                        <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        <span class="font-serif italic text-ink text-lg">Recent Reel</span>
-                        <span class="font-sans text-sm text-muted mt-2">Tap to view on Instagram</span>
-                    </div>
-                </a>
-            </blockquote>
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/drmeghnadassani/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.06); margin:0; max-width:100%; min-width:280px; padding:0; width:100%;">
-                <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener" class="block aspect-square bg-linen rounded-xl overflow-hidden group relative">
-                    <div class="w-full h-full flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:bg-gold/10">
-                        <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        <span class="font-serif italic text-ink text-lg">Featured Post</span>
-                        <span class="font-sans text-sm text-muted mt-2">Tap to view on Instagram</span>
-                    </div>
-                </a>
-            </blockquote>
+        <!-- Instagram photo grid -->
+        <div class="grid grid-cols-3 gap-3 md:gap-5 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener"
+               class="block aspect-square rounded-xl overflow-hidden group relative shadow-md">
+                <img src="images/meghna-hero.jpeg" alt="Dr. Meghna Dassani" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-all duration-300 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener"
+               class="block aspect-square rounded-xl overflow-hidden group relative shadow-md">
+                <img src="images/meghna-casual.png" alt="Dr. Meghna Dassani with balloon" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-all duration-300 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener"
+               class="block aspect-square rounded-xl overflow-hidden group relative shadow-md">
+                <img src="images/logo.png" alt="Meghna Dassani brand" class="w-full h-full object-contain p-6 bg-white transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-all duration-300 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </div>
+            </a>
         </div>
 
         <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener"
@@ -585,6 +677,190 @@
             icon.style.transform = 'rotate(180deg)';
         }
     }
+
+    // =============================================
+    // Glass Testimonial Stack
+    // =============================================
+    (function() {
+        const testimonials = [
+            {
+                initials: 'RP',
+                name: 'Dr. Rania Patel',
+                role: 'Pediatric Dentist & Practice Owner',
+                quote: "I've been in masterminds before, but none of them understood what it's like to be a clinician AND a CEO. Both/And is the first space where I don't have to explain myself. I just belong.",
+                tags: [{ text: 'FOUNDING MEMBER', type: 'featured' }, { text: 'Dentist', type: 'default' }],
+                stats: [
+                    { icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>', text: 'Practice of 15+' },
+                    { icon: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>', text: 'Member since launch' }
+                ],
+                gradient: 'linear-gradient(135deg, #C4955A, #A87B42)'
+            },
+            {
+                initials: 'TL',
+                name: 'Dr. Tanya Lewis',
+                role: 'Orthodontist & Sleep Medicine Specialist',
+                quote: "Meghna creates a space that feels like exhaling. The monthly meetups aren't just informative — they're restorative. I leave every session feeling less alone and more clear about what matters.",
+                tags: [{ text: 'Sleep Medicine', type: 'default' }, { text: 'Retreat Attendee', type: 'default' }],
+                stats: [
+                    { icon: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>', text: 'Highly recommended' },
+                    { icon: '<polyline points="20 6 9 17 4 12"/>', text: 'Verified member' }
+                ],
+                gradient: 'linear-gradient(135deg, #3D2B1F, #7A6B5D)'
+            },
+            {
+                initials: 'JM',
+                name: 'Jessica Martinez',
+                role: 'Practice Manager & COO',
+                quote: "I'm not a doctor, but I run one of the most complex dental practices in Texas. Both/And gave me language for the loneliness of operational leadership. These women see me — the real me, not just my title.",
+                tags: [{ text: 'Operations', type: 'default' }, { text: 'Leadership', type: 'featured' }],
+                stats: [
+                    { icon: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>', text: 'Top contributor' },
+                    { icon: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>', text: '8 months in' }
+                ],
+                gradient: 'linear-gradient(135deg, #C4955A, #F5EDE3)'
+            },
+            {
+                initials: 'NK',
+                name: 'Dr. Nina Kowalski',
+                role: 'Physician & Functional Medicine Founder',
+                quote: "I left corporate medicine to start my own practice and immediately felt the weight of doing it alone. Both/And isn't networking — it's a lifeline. These women understand the stakes.",
+                tags: [{ text: 'Physician', type: 'default' }, { text: 'Founder', type: 'default' }],
+                stats: [
+                    { icon: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>', text: 'Practice launched' },
+                    { icon: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>', text: 'New member' }
+                ],
+                gradient: 'linear-gradient(135deg, #A87B42, #C4955A)'
+            },
+            {
+                initials: 'AD',
+                name: 'Dr. Amara Douglas',
+                role: 'Periodontist & Multi-Location Owner',
+                quote: "Running three locations nearly broke me. Meghna didn't give me a formula — she gave me a room full of women who held space while I figured it out. That's worth more than any course.",
+                tags: [{ text: 'Multi-Location', type: 'featured' }, { text: 'Scaling', type: 'default' }],
+                stats: [
+                    { icon: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>', text: '3 locations' },
+                    { icon: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>', text: '1 year member' }
+                ],
+                gradient: 'linear-gradient(135deg, #7A6B5D, #3D2B1F)'
+            }
+        ];
+
+        const stack = document.getElementById('testimonialStack');
+        if (!stack) return;
+
+        const VISIBLE_BEHIND = 2;
+        let activeIndex = 0;
+        let isDragging = false;
+        let dragStart = 0;
+        let dragOffset = 0;
+        let currentDragCard = null;
+
+        function makeSvgIcon(pathData) {
+            return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + pathData + '</svg>';
+        }
+
+        function render() {
+            stack.innerHTML = '';
+            const total = testimonials.length;
+
+            testimonials.forEach(function(t, index) {
+                const displayOrder = (index - activeIndex + total) % total;
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+
+                if (displayOrder === 0) {
+                    card.style.transform = 'translateX(' + dragOffset + 'px)';
+                    card.style.opacity = '1';
+                    card.style.zIndex = total;
+                } else if (displayOrder <= VISIBLE_BEHIND) {
+                    const scale = 1 - 0.05 * displayOrder;
+                    const ty = -2 * displayOrder;
+                    card.style.transform = 'scale(' + scale + ') translateY(' + ty + 'rem)';
+                    card.style.opacity = String(1 - 0.2 * displayOrder);
+                    card.style.zIndex = total - displayOrder;
+                } else {
+                    card.style.transform = 'scale(0)';
+                    card.style.opacity = '0';
+                    card.style.zIndex = 0;
+                }
+
+                const tagsHTML = t.tags.map(function(tag) {
+                    return '<span class="card-tag ' + tag.type + '">' + tag.text + '</span>';
+                }).join('');
+
+                const statsHTML = t.stats.map(function(s) {
+                    return '<span class="card-stat">' + makeSvgIcon(s.icon) + ' ' + s.text + '</span>';
+                }).join('');
+
+                card.innerHTML =
+                    '<div style="padding:1.5rem 1.5rem 1.25rem;"><div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;">' +
+                        '<div style="display:flex;align-items:center;gap:1rem;">' +
+                            '<div class="card-avatar" style="background:' + t.gradient + ';">' + t.initials + '</div>' +
+                            '<div><h3 style="font-family:DM Sans,sans-serif;font-weight:600;font-size:1.05rem;color:#1A1A1A;">' + t.name + '</h3>' +
+                            '<p style="font-family:DM Sans,sans-serif;font-size:0.85rem;color:#7A6B5D;margin-top:2px;">' + t.role + '</p></div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<blockquote style="font-family:Playfair Display,serif;font-style:italic;font-size:1.1rem;color:#1A1A1A;line-height:1.7;margin-bottom:1.25rem;">&ldquo;' + t.quote + '&rdquo;</blockquote>' +
+                    '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;border-top:1px solid rgba(196,149,90,0.2);padding-top:0.85rem;gap:0.75rem;">' +
+                        '<div style="display:flex;flex-wrap:wrap;gap:6px;">' + tagsHTML + '</div>' +
+                        '<div style="display:flex;align-items:center;gap:12px;">' + statsHTML + '</div>' +
+                    '</div></div>';
+
+                card.addEventListener('mousedown', function(e) { startDrag(e, index); });
+                card.addEventListener('touchstart', function(e) { startDrag(e, index); }, { passive: true });
+
+                stack.appendChild(card);
+            });
+
+            // Pagination dots
+            var pag = document.createElement('div');
+            pag.className = 'testimonial-pagination';
+            testimonials.forEach(function(_, i) {
+                var dot = document.createElement('button');
+                dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+                if (i === activeIndex) dot.className = 'active';
+                dot.addEventListener('click', function() { activeIndex = i; dragOffset = 0; render(); });
+                pag.appendChild(dot);
+            });
+            stack.appendChild(pag);
+        }
+
+        function startDrag(e, index) {
+            if (index !== activeIndex) return;
+            isDragging = true;
+            dragStart = ('touches' in e) ? e.touches[0].clientX : e.clientX;
+            currentDragCard = stack.children[index];
+            if (currentDragCard) currentDragCard.classList.add('is-dragging');
+        }
+
+        function onMove(e) {
+            if (!isDragging) return;
+            var clientX = ('touches' in e) ? e.touches[0].clientX : e.clientX;
+            dragOffset = clientX - dragStart;
+            if (currentDragCard) {
+                currentDragCard.style.transform = 'translateX(' + dragOffset + 'px)';
+            }
+        }
+
+        function onEnd() {
+            if (!isDragging) return;
+            if (currentDragCard) currentDragCard.classList.remove('is-dragging');
+            if (Math.abs(dragOffset) > 50) {
+                activeIndex = (activeIndex + (dragOffset < 0 ? 1 : -1) + testimonials.length) % testimonials.length;
+            }
+            isDragging = false;
+            dragOffset = 0;
+            currentDragCard = null;
+            render();
+        }
+
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove);
+        window.addEventListener('mouseup', onEnd);
+        window.addEventListener('touchend', onEnd);
+
+        render();
+    })();
 </script>
 
 </body>
