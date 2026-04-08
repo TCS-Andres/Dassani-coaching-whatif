@@ -917,21 +917,15 @@
         document.getElementById('scroll-progress').style.width = progress + '%';
     });
 
-    // Sticky nav — show once scrolled past ~40% of hero
-    const hero = document.getElementById('hero');
+    // Sticky nav — show once scrolled 300px (works reliably on all devices)
     const stickyNav = document.getElementById('sticky-nav');
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            // Show nav when hero is less than 60% visible (i.e. scrolled past 40%)
-            if (entry.intersectionRatio < 0.6) {
-                stickyNav.classList.add('visible');
-            } else {
-                stickyNav.classList.remove('visible');
-            }
-        },
-        { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0] }
-    );
-    observer.observe(hero);
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            stickyNav.classList.add('visible');
+        } else {
+            stickyNav.classList.remove('visible');
+        }
+    }, { passive: true });
 
     // Parallax effect on hero image
     window.addEventListener('scroll', () => {
