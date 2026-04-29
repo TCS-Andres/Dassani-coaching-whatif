@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply to Join Both/And — Dr. Meghna Dassani</title>
+    <meta name="description" content="Apply to join Both/And — the curated coaching community for women doctors and healthcare entrepreneurs led by Dr. Meghna Dassani.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9830;</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFAF6',
+                        ink: '#1A1A1A',
+                        gold: '#C4955A',
+                        'gold-deep': '#A87B42',
+                        espresso: '#3D2B1F',
+                        linen: '#F5EDE3',
+                        muted: '#7A6B5D',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background-color: #FDFAF6; color: #1A1A1A; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+        .field-input {
+            width: 100%;
+            background: #FDFAF6;
+            border: 1px solid rgba(196, 149, 90, 0.35);
+            border-radius: 0.75rem;
+            padding: 0.85rem 1rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            color: #1A1A1A;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .field-input::placeholder { color: #B8A99A; }
+        .field-input:focus {
+            outline: none;
+            border-color: #C4955A;
+            box-shadow: 0 0 0 4px rgba(196, 149, 90, 0.15);
+        }
+        textarea.field-input { min-height: 140px; resize: vertical; }
+
+        .cta-btn { transition: all 0.3s ease; }
+        .cta-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 32px rgba(196, 149, 90, 0.35);
+        }
+        .cta-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .cta-shimmer {
+            background: linear-gradient(110deg, #C4955A 0%, #C4955A 40%, #e8c896 50%, #C4955A 60%, #C4955A 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .orb-1 {
+            width: 360px; height: 360px;
+            background: radial-gradient(circle, rgba(196,149,90,0.35), transparent 70%);
+            top: -120px; right: -80px;
+        }
+        .orb-2 {
+            width: 280px; height: 280px;
+            background: radial-gradient(circle, rgba(245,237,227,0.55), transparent 70%);
+            bottom: -100px; left: -60px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<header class="border-b border-linen">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.png" alt="Meghna Dassani" class="h-10">
+            <span class="font-serif italic text-2xl text-ink">Both/And</span>
+        </a>
+        <a href="index.html" class="font-sans text-sm text-muted hover:text-ink transition-colors">
+            &larr; Back
+        </a>
+    </div>
+</header>
+
+<main class="flex-1 relative overflow-hidden">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="max-w-3xl mx-auto px-6 py-16 md:py-24 relative z-10">
+        <div class="text-center mb-12">
+            <p class="font-sans text-sm tracking-widest uppercase text-gold mb-4">Apply to join</p>
+            <h1 class="font-serif italic text-4xl md:text-6xl text-ink mb-6 leading-tight">
+                Tell us about you.
+            </h1>
+            <p class="font-sans text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
+                Both/And is a curated community, so every prospective member applies. Share a few details below and Dr. Dassani will personally be in touch within 24 to 48 hours to talk through fit and answer your questions.
+            </p>
+        </div>
+
+        <div class="bg-linen rounded-2xl p-8 md:p-12 shadow-sm">
+            <form id="applyForm" method="POST" action="https://formsubmit.co/ajax/meghna@meghnadassani.com" novalidate>
+                <!-- FormSubmit configuration -->
+                <input type="hidden" name="_subject" value="New Both/And application">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <!-- Honeypot: real users won't fill this; bots will -->
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+                <div class="grid md:grid-cols-2 gap-5 mb-5">
+                    <div>
+                        <label for="firstName" class="block font-sans text-sm font-semibold text-ink mb-2">First name <span class="text-gold">*</span></label>
+                        <input id="firstName" name="firstName" type="text" required autocomplete="given-name" class="field-input" placeholder="Meghna">
+                    </div>
+                    <div>
+                        <label for="lastName" class="block font-sans text-sm font-semibold text-ink mb-2">Last name <span class="text-gold">*</span></label>
+                        <input id="lastName" name="lastName" type="text" required autocomplete="family-name" class="field-input" placeholder="Dassani">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label for="profession" class="block font-sans text-sm font-semibold text-ink mb-2">What do you do? <span class="text-gold">*</span></label>
+                    <input id="profession" name="profession" type="text" required class="field-input" placeholder="Dentist, practice owner, physician, founder, etc.">
+                </div>
+
+                <div class="mb-5">
+                    <label for="practice" class="block font-sans text-sm font-semibold text-ink mb-2">Practice or business name <span class="text-muted font-normal">(optional)</span></label>
+                    <input id="practice" name="practice" type="text" autocomplete="organization" class="field-input" placeholder="Where you build">
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-5 mb-5">
+                    <div>
+                        <label for="email" class="block font-sans text-sm font-semibold text-ink mb-2">Email <span class="text-gold">*</span></label>
+                        <input id="email" name="email" type="email" required autocomplete="email" class="field-input" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="phone" class="block font-sans text-sm font-semibold text-ink mb-2">Phone <span class="text-muted font-normal">(optional)</span></label>
+                        <input id="phone" name="phone" type="tel" autocomplete="tel" class="field-input" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <label for="message" class="block font-sans text-sm font-semibold text-ink mb-2">What are you hoping to find in Both/And? <span class="text-muted font-normal">(optional, but helpful)</span></label>
+                    <textarea id="message" name="message" class="field-input" placeholder="A sentence or two on where you are right now and why this room sounds like the one you've been looking for."></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="cta-btn cta-shimmer w-full text-white font-sans font-bold text-lg py-4 rounded-full shadow-lg" style="box-shadow: 0 8px 30px rgba(196,149,90,0.35);">
+                    Submit Application
+                </button>
+
+                <p id="formError" class="hidden mt-4 font-sans text-sm text-red-600 text-center">
+                    Something went wrong. Please try again or email <a href="mailto:hello@meghnadassani.com" class="underline">hello@meghnadassani.com</a>.
+                </p>
+
+                <p class="font-sans text-xs text-muted text-center mt-6">
+                    Your information stays between you and Dr. Dassani. We don't share, sell, or add you to a list.
+                </p>
+            </form>
+
+            <div id="formSuccess" class="hidden text-center py-8">
+                <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/15 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <h2 class="font-serif italic text-3xl md:text-4xl text-ink mb-4">Your application is in.</h2>
+                <p class="font-sans text-lg text-muted leading-relaxed max-w-xl mx-auto mb-8">
+                    Dr. Dassani personally reviews every application. You'll hear from her within 24 to 48 hours so the two of you can talk through fit and next steps.
+                </p>
+                <a href="index.html" class="font-sans text-sm font-semibold text-gold hover:text-gold-deep transition-colors">
+                    &larr; Back to Both/And
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-cream py-8 border-t border-linen">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="font-sans text-sm text-muted">
+            <a href="https://www.instagram.com/drmeghnadassani/" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">@drmeghnadassani</a> &nbsp;&middot;&nbsp;
+            &copy; 2026 Sleep. Breathe. Dream LLC &nbsp;&middot;&nbsp;
+            <a href="https://meghnadassani.mykajabi.com/pages/terms" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Terms</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://meghnadassani.mykajabi.com/pages/privacy-policy" target="_blank" rel="noopener" class="underline hover:text-ink transition-colors">Privacy Policy</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    // ============================================================
+    // FORM SUBMISSION — FormSubmit.co
+    // ------------------------------------------------------------
+    // Applications POST to FormSubmit's AJAX endpoint and are
+    // delivered to: meghna@meghnadassani.com
+    //
+    // First-time setup:
+    //   1. Submit the form once (real submission). FormSubmit will
+    //      send a verification email to meghna@meghnadassani.com.
+    //   2. Click the verification link in that email. Done — all
+    //      future submissions arrive in her inbox automatically.
+    //
+    // Optional hardening (recommended after verification):
+    //   FormSubmit will also email a hashed alias URL like
+    //   https://formsubmit.co/ajax/abc123randomhash. Replace the
+    //   email in the form's `action` attribute with that hashed
+    //   URL so meghna@meghnadassani.com isn't visible in the page
+    //   source (helps with email-scraping bots).
+    //
+    // The JS below also handles any endpoint (Formspree, etc.)
+    // that accepts a POST and returns a 200-range status.
+    // ============================================================
+    (function() {
+        var form = document.getElementById('applyForm');
+        var success = document.getElementById('formSuccess');
+        var errorMsg = document.getElementById('formError');
+        var submitBtn = document.getElementById('submitBtn');
+        if (!form) return;
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            errorMsg.classList.add('hidden');
+
+            // Basic required-field validation
+            var requiredFields = form.querySelectorAll('[required]');
+            for (var i = 0; i < requiredFields.length; i++) {
+                if (!requiredFields[i].value.trim()) {
+                    requiredFields[i].focus();
+                    return;
+                }
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            var formData = new FormData(form);
+
+            try {
+                var res = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    form.classList.add('hidden');
+                    success.classList.remove('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (err) {
+                errorMsg.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Application';
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
