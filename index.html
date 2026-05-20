@@ -736,23 +736,16 @@
                         For the first 20 founding members only. After those spots are filled, the rate moves to <span class="font-semibold">$747/month</span>.
                     </p>
 
-                    <!-- ============================================================
-                         FOUNDING-MEMBER SPOTS COUNTER
-                         Edit the three numbers below as applications are accepted:
-                           • #claimed-count  (current claimed)
-                           • #spots-left     (20 minus claimed)
-                           • style="width:..."  (percentage = claimed / 20 * 100)
-                         Example for 12 claimed: claimed=12, left=8, width=60%
-                         ============================================================ -->
-                    <div class="mb-8" data-claimed="7" data-total="20">
+                    <!-- Founding-member spots counter — values are synced from js/spots-counter.js -->
+                    <div class="mb-8">
                         <div class="flex items-center justify-between mb-2 text-xs tracking-widest uppercase">
                             <span class="text-gold font-semibold">
-                                <span id="claimed-count">7</span> of 20 founding spots claimed
+                                <span data-spots="claimed">7</span> of <span data-spots="total">20</span> founding spots claimed
                             </span>
-                            <span class="text-cream/60"><span id="spots-left">13</span> left</span>
+                            <span class="text-cream/60"><span data-spots="left">13</span> left</span>
                         </div>
                         <div class="h-1.5 rounded-full bg-cream/10 overflow-hidden">
-                            <div class="h-full bg-gold rounded-full transition-all duration-700" style="width: 35%;"></div>
+                            <div data-spots="bar" class="h-full bg-gold rounded-full transition-all duration-700" style="width: 35%;"></div>
                         </div>
                     </div>
 
@@ -1399,6 +1392,9 @@
         render();
     })();
 </script>
+
+<!-- Founding-member spots counter (shared with apply.html) -->
+<script src="js/spots-counter.js"></script>
 
 </body>
 </html>
