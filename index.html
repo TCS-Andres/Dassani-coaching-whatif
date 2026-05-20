@@ -450,51 +450,69 @@
     <!-- Subtle background texture -->
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#C4955A 1px, transparent 1px); background-size: 32px 32px;"></div>
     <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <h2 class="font-serif text-3xl md:text-5xl text-ink text-center mb-16" data-aos="fade-up">
-            What you'll find in the room
-        </h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Card 1 -->
-            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="0">
-                <div class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center mb-6">
-                    <div class="w-4 h-4 rounded-full bg-gold"></div>
-                </div>
-                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Monthly Virtual Meetups</h3>
-                <p class="font-sans text-lg text-muted leading-relaxed">
-                    Rotating formats: hot seat coaching, guest experts, Meghna-led workshops, and honest conversation. 90 minutes, once a month, on a schedule built for women whose calendars are already full.
+        <!-- Asymmetric heading -->
+        <div class="grid md:grid-cols-12 gap-6 mb-12 md:mb-16 items-end">
+            <div class="md:col-span-8" data-aos="fade-up">
+                <p class="font-sans text-sm tracking-widest uppercase text-gold mb-4">Membership benefits</p>
+                <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl text-ink leading-[1.1]">
+                    What you'll find<br>in the room.
+                </h2>
+            </div>
+            <div class="md:col-span-4 md:pb-3" data-aos="fade-up" data-aos-delay="100">
+                <p class="font-sans text-base text-muted leading-relaxed">
+                    Four things you can count on, every month you're a member.
                 </p>
             </div>
-            <!-- Card 2 -->
-            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 flex items-center justify-center mb-6">
-                    <div class="w-8 h-8 border-2 border-gold rotate-45"></div>
+        </div>
+
+        <!-- Asymmetric bento: 7-5 / 5-7 -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
+            <!-- Card 1: WIDE (7 cols) — Monthly Meetups -->
+            <div class="feature-card md:col-span-7 bg-linen rounded-2xl p-8 md:p-10 shadow-sm relative overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+                <span class="absolute -top-2 right-6 md:right-10 font-serif text-[120px] md:text-[160px] text-gold/10 leading-none select-none pointer-events-none">01</span>
+                <div class="relative">
+                    <p class="font-sans text-xs tracking-widest uppercase text-gold mb-4">Monthly &middot; 90 minutes</p>
+                    <h3 class="font-serif text-3xl md:text-4xl text-ink mb-4 leading-tight">Monthly Virtual Meetups</h3>
+                    <p class="font-sans text-lg text-muted leading-relaxed max-w-xl">
+                        Rotating formats: hot seat coaching, guest experts, Meghna-led workshops, and honest conversation. 90 minutes, once a month, on a schedule built for women whose calendars are already full.
+                    </p>
                 </div>
-                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Private Online Community</h3>
-                <p class="font-sans text-lg text-muted leading-relaxed">
-                    A calm, intentional space where real conversations happen between meetups. Ask for help &mdash; without apology. Share a win. Vent about a terrible Tuesday. It's never you versus them; it's all of us versus the noise.
-                </p>
             </div>
-            <!-- Card 3 -->
-            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-12 h-12 flex items-center justify-center mb-6">
-                    <div class="w-8 h-8 border-2 border-gold rounded-sm"></div>
+
+            <!-- Card 2: NARROW (5 cols) — Community -->
+            <div class="feature-card md:col-span-5 bg-cream border-2 border-gold/20 rounded-2xl p-8 md:p-10 shadow-sm relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <span class="absolute -top-2 right-6 font-serif text-[120px] text-gold/10 leading-none select-none pointer-events-none">02</span>
+                <div class="relative">
+                    <p class="font-sans text-xs tracking-widest uppercase text-gold mb-4">Always on</p>
+                    <h3 class="font-serif text-3xl md:text-4xl text-ink mb-4 leading-tight">Private Community</h3>
+                    <p class="font-sans text-base text-muted leading-relaxed">
+                        Real conversations between meetups. Ask for help &mdash; without apology. It's never you versus them; it's all of us versus the noise.
+                    </p>
                 </div>
-                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Annual In-Person Retreat</h3>
-                <p class="font-sans text-lg text-muted leading-relaxed">
-                    Two days together in person. Part strategic planning, part deep connection, part restoration. Included in your membership.
-                </p>
             </div>
-            <!-- Card 4 -->
-            <div class="feature-card bg-linen rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-12 h-12 flex items-center justify-center mb-6">
-                    <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-                        <polygon points="20,2 37,12 37,28 20,38 3,28 3,12" stroke="#C4955A" stroke-width="2" fill="none"/>
-                    </svg>
+
+            <!-- Card 3: NARROW (5 cols) — Retreat -->
+            <div class="feature-card md:col-span-5 bg-cream border-2 border-gold/20 rounded-2xl p-8 md:p-10 shadow-sm relative overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+                <span class="absolute -top-2 right-6 font-serif text-[120px] text-gold/10 leading-none select-none pointer-events-none">03</span>
+                <div class="relative">
+                    <p class="font-sans text-xs tracking-widest uppercase text-gold mb-4">Annual &middot; In person</p>
+                    <h3 class="font-serif text-3xl md:text-4xl text-ink mb-4 leading-tight">In-Person Retreat</h3>
+                    <p class="font-sans text-base text-muted leading-relaxed">
+                        Two days together. Part strategic planning, part deep connection, part restoration. Included in your membership.
+                    </p>
                 </div>
-                <h3 class="font-sans font-semibold text-2xl text-ink mb-3">Meghna's Facilitation</h3>
-                <p class="font-sans text-lg text-muted leading-relaxed">
-                    Every meetup is personally facilitated by Meghna. No community manager. No autopilot. Two decades of clinical practice, business building, and Both/And living shape every interaction &mdash; because forward motion is the only response that's ever worked.
-                </p>
+            </div>
+
+            <!-- Card 4: WIDE DARK (7 cols) — Meghna's Facilitation -->
+            <div class="feature-card md:col-span-7 bg-espresso rounded-2xl p-8 md:p-10 shadow-lg relative overflow-hidden text-cream" data-aos="fade-up" data-aos-delay="100">
+                <span class="absolute -top-2 right-6 md:right-10 font-serif text-[120px] md:text-[160px] text-gold/20 leading-none select-none pointer-events-none">04</span>
+                <div class="relative">
+                    <p class="font-sans text-xs tracking-widest uppercase text-gold mb-4">The differentiator</p>
+                    <h3 class="font-serif text-3xl md:text-4xl text-cream mb-4 leading-tight">Meghna's Facilitation</h3>
+                    <p class="font-sans text-lg text-cream/80 leading-relaxed max-w-xl">
+                        Every meetup is personally facilitated by Meghna. No community manager. No autopilot. Two decades of clinical practice, business building, and Both/And living shape every interaction &mdash; because forward motion is the only response that's ever worked.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -504,36 +522,56 @@
 <!-- 3.5 "INSIDE THE ROOM" VISUAL SECTION -->
 <!-- ============================================ -->
 <section class="py-24 md:py-32 bg-linen relative overflow-hidden">
+    <!-- Soft warm gradient backdrop -->
+    <div class="absolute inset-0 opacity-40" style="background: radial-gradient(ellipse at 70% 30%, rgba(196,149,90,0.18) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(168,123,66,0.12) 0%, transparent 50%);"></div>
+
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto" data-aos="fade-up">
-            <p class="font-sans text-sm tracking-widest uppercase text-gold mb-4">The kind of room this is</p>
-            <h2 class="font-serif text-3xl md:text-5xl text-ink mb-6 leading-tight">
-                Honest conversations. Real strategy. Women who get it.
-            </h2>
-            <p class="font-sans text-lg text-muted leading-relaxed">
-                No performance. No &ldquo;look how I do it all.&rdquo; Just peers who carry their own version of what you carry &mdash; and who keep moving forward together.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="0">
-                <img src="images/room-conversation.jpg"
-                     alt="Two women healthcare professionals in conversation over coffee"
-                     loading="lazy"
-                     class="w-full h-full object-cover">
+        <!-- Asymmetric heading + lead intro -->
+        <div class="grid md:grid-cols-12 gap-8 md:gap-12 mb-12 md:mb-16 items-end">
+            <div class="md:col-span-7" data-aos="fade-up">
+                <p class="font-sans text-sm tracking-widest uppercase text-gold mb-4">The kind of room this is</p>
+                <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl text-ink leading-[1.1]">
+                    Honest conversations.<br>
+                    Real strategy.<br>
+                    <span class="text-gold">Women who get it.</span>
+                </h2>
             </div>
-            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                <img src="images/room-retreat.jpg"
-                     alt="A small group of women gathered in conversation around a coffee table"
-                     loading="lazy"
-                     class="w-full h-full object-cover">
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                <img src="images/room-portrait.jpg"
-                     alt="A thoughtful woman at her desk in a warm office"
-                     loading="lazy"
-                     class="w-full h-full object-cover">
+            <div class="md:col-span-5 md:pb-2" data-aos="fade-up" data-aos-delay="100">
+                <p class="font-sans text-lg text-muted leading-relaxed">
+                    No performance. No &ldquo;look how I do it all.&rdquo; Just peers who carry their own version of what you carry &mdash; led by Meghna in real, working conversations.
+                </p>
             </div>
         </div>
+
+        <!-- Bento image grid: 1 large landscape + 2 stacked portraits -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6">
+            <!-- Big landscape: Dr. Dassani at retreat -->
+            <div class="lg:col-span-7 lg:row-span-2 overflow-hidden rounded-2xl shadow-lg group" data-aos="fade-right">
+                <img src="images/dassani-retreat.jpg"
+                     alt="Dr. Meghna Dassani leading a small group of women in conversation at a sunlit retreat"
+                     loading="lazy"
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[280px] lg:min-h-[640px]">
+            </div>
+            <!-- Top right portrait: Dr. Dassani facilitating -->
+            <div class="lg:col-span-5 overflow-hidden rounded-2xl shadow-lg group" data-aos="fade-left">
+                <img src="images/dassani-facilitating.jpg"
+                     alt="Dr. Meghna Dassani facilitating a small group conversation"
+                     loading="lazy"
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[260px] lg:min-h-[310px]">
+            </div>
+            <!-- Bottom right portrait: Dr. Dassani 1-on-1 -->
+            <div class="lg:col-span-5 overflow-hidden rounded-2xl shadow-lg group" data-aos="fade-left" data-aos-delay="150">
+                <img src="images/dassani-1on1.jpg"
+                     alt="Dr. Meghna Dassani in a one-on-one mentorship conversation"
+                     loading="lazy"
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 min-h-[260px] lg:min-h-[310px]">
+            </div>
+        </div>
+
+        <!-- Caption strip beneath the grid -->
+        <p class="font-sans text-sm text-muted text-center mt-8 italic max-w-2xl mx-auto" data-aos="fade-up">
+            Meghna personally facilitates every conversation &mdash; small groups, 1:1 hot seats, and the annual retreat.
+        </p>
     </div>
 </section>
 
@@ -541,65 +579,105 @@
 <!-- 4. "IS THIS YOUR ROOM?" SECTION -->
 <!-- ============================================ -->
 <section class="py-24 md:py-32 bg-cream border-t border-gold/30">
-    <div class="max-w-3xl mx-auto px-6">
-        <h2 class="font-serif text-3xl md:text-5xl text-ink text-center mb-16" data-aos="fade-up">
-            Both/And is for the woman who&hellip;
-        </h2>
-        <div class="space-y-8">
-            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="0">
-                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
-                <p class="font-serif text-xl text-ink leading-relaxed">Has built something she's proud of &mdash; and still feels a quiet loneliness at the top</p>
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
+            <!-- Left: Heading + side image (sticky on desktop) -->
+            <div class="md:col-span-5 lg:sticky lg:top-24" data-aos="fade-up">
+                <p class="font-sans text-sm tracking-widest uppercase text-gold mb-4">Who this is for</p>
+                <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl text-ink mb-6 leading-[1.05]">
+                    Both/And is for the woman who&hellip;
+                </h2>
+                <p class="font-sans text-lg text-muted leading-relaxed mb-8 max-w-md">
+                    Read these slowly. If one feels like a mirror, this is your room.
+                </p>
+                <div class="hidden md:block overflow-hidden rounded-2xl shadow-lg max-w-sm">
+                    <img src="images/meghna-shelves.jpg"
+                         alt="Dr. Meghna Dassani"
+                         loading="lazy"
+                         class="w-full object-cover">
+                </div>
             </div>
-            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="100">
-                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
-                <p class="font-serif text-xl text-ink leading-relaxed">Wants strategic peers who understand both the clinical and the business side</p>
-            </div>
-            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="200">
-                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
-                <p class="font-serif text-xl text-ink leading-relaxed">Is looking for genuine connection, not networking &mdash; women who will tell her the truth with love</p>
-            </div>
-            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="300">
-                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
-                <p class="font-serif text-xl text-ink leading-relaxed">Is ready to invest in herself the way she invests in her practice, her team, and everyone else</p>
-            </div>
-            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="400">
-                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
-                <p class="font-serif text-xl text-ink leading-relaxed">Is done playing small &mdash; and done choosing between doctor and mom, clinician and entrepreneur, ambition and presence</p>
-            </div>
-            <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="500">
-                <span class="text-gold text-xl mt-1 flex-shrink-0">&#9830;</span>
-                <p class="font-serif text-xl text-ink leading-relaxed">Knows that forward motion is non-negotiable &mdash; and is ready to keep moving with women who get it</p>
+
+            <!-- Right: 6 numbered items -->
+            <div class="md:col-span-7 space-y-6 md:space-y-7">
+                <div class="flex items-start gap-5 pb-6 md:pb-7 border-b border-linen" data-aos="fade-up" data-aos-delay="0">
+                    <span class="font-serif text-3xl md:text-4xl text-gold leading-none flex-shrink-0 mt-1">01</span>
+                    <p class="font-serif text-xl md:text-2xl text-ink leading-snug">Has built something she's proud of &mdash; and still feels a quiet loneliness at the top.</p>
+                </div>
+                <div class="flex items-start gap-5 pb-6 md:pb-7 border-b border-linen" data-aos="fade-up" data-aos-delay="50">
+                    <span class="font-serif text-3xl md:text-4xl text-gold leading-none flex-shrink-0 mt-1">02</span>
+                    <p class="font-serif text-xl md:text-2xl text-ink leading-snug">Wants strategic peers who understand both the clinical and the business side.</p>
+                </div>
+                <div class="flex items-start gap-5 pb-6 md:pb-7 border-b border-linen" data-aos="fade-up" data-aos-delay="100">
+                    <span class="font-serif text-3xl md:text-4xl text-gold leading-none flex-shrink-0 mt-1">03</span>
+                    <p class="font-serif text-xl md:text-2xl text-ink leading-snug">Is looking for genuine connection, not networking &mdash; women who will tell her the truth with love.</p>
+                </div>
+                <div class="flex items-start gap-5 pb-6 md:pb-7 border-b border-linen" data-aos="fade-up" data-aos-delay="150">
+                    <span class="font-serif text-3xl md:text-4xl text-gold leading-none flex-shrink-0 mt-1">04</span>
+                    <p class="font-serif text-xl md:text-2xl text-ink leading-snug">Is ready to invest in herself the way she invests in her practice, her team, and everyone else.</p>
+                </div>
+                <div class="flex items-start gap-5 pb-6 md:pb-7 border-b border-linen" data-aos="fade-up" data-aos-delay="200">
+                    <span class="font-serif text-3xl md:text-4xl text-gold leading-none flex-shrink-0 mt-1">05</span>
+                    <p class="font-serif text-xl md:text-2xl text-ink leading-snug">Is done playing small &mdash; and done choosing between doctor and mom, clinician and entrepreneur, ambition and presence.</p>
+                </div>
+                <div class="flex items-start gap-5" data-aos="fade-up" data-aos-delay="250">
+                    <span class="font-serif text-3xl md:text-4xl text-gold leading-none flex-shrink-0 mt-1">06</span>
+                    <p class="font-serif text-xl md:text-2xl text-ink leading-snug">Knows that forward motion is non-negotiable &mdash; and is ready to keep moving with women who get it.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ============================================ -->
-<!-- 5. ABOUT / GUIDE SECTION -->
+<!-- 5. ABOUT / GUIDE SECTION (magazine-style) -->
 <!-- ============================================ -->
 <section class="py-24 md:py-32 bg-linen relative overflow-hidden">
     <canvas class="silk-section-canvas" data-silk="about"></canvas>
     <div class="absolute inset-0 z-[1]" style="background: linear-gradient(135deg, rgba(245,237,227,0.7) 0%, rgba(245,237,227,0.4) 50%, rgba(245,237,227,0.8) 100%);"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-            <!-- Left: Image -->
-            <div data-aos="fade-right">
-                <img src="images/meghna-office.jpg"
-                     alt="Dr. Meghna Dassani — Your guide for Both/And"
-                     loading="lazy"
-                     class="w-full max-w-md mx-auto rounded-xl shadow-xl object-cover">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+            <!-- Left: Layered images with overlap -->
+            <div class="md:col-span-5 relative" data-aos="fade-right">
+                <!-- Decorative gold circle accent -->
+                <div class="hidden md:block absolute -top-6 -left-6 w-32 h-32 rounded-full bg-gold/20 -z-10"></div>
+                <!-- Main image -->
+                <div class="overflow-hidden rounded-2xl shadow-2xl">
+                    <img src="images/meghna-office.jpg"
+                         alt="Dr. Meghna Dassani — Your guide for Both/And"
+                         loading="lazy"
+                         class="w-full object-cover">
+                </div>
+                <!-- Secondary image, offset bottom-right -->
+                <div class="absolute -bottom-6 -right-4 md:-right-10 w-32 md:w-44 overflow-hidden rounded-xl shadow-xl border-[5px] border-cream hidden md:block">
+                    <img src="images/meghna-portrait.jpg"
+                         alt="Dr. Meghna Dassani"
+                         loading="lazy"
+                         class="w-full object-cover">
+                </div>
             </div>
-            <!-- Right: Text -->
-            <div data-aos="fade-up" data-aos-delay="100">
-                <p class="font-sans text-sm tracking-widest uppercase text-muted mb-4">Your guide</p>
-                <h2 class="font-serif text-3xl md:text-5xl text-ink mb-8">Dr. Meghna Dassani</h2>
+
+            <!-- Right: Text with pull quote -->
+            <div class="md:col-span-7 md:pl-4 lg:pl-8" data-aos="fade-up" data-aos-delay="100">
+                <p class="font-sans text-sm tracking-widest uppercase text-gold mb-4">Your guide</p>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-ink mb-8 leading-[1.05]">Dr. Meghna Dassani</h2>
                 <div class="space-y-6 font-sans text-lg text-muted leading-relaxed">
                     <p>
                         Dentist. Airway health pioneer. Bestselling author. Podcaster. Forbes Business Council member. Wife and mother. And a woman who spent two decades being told she had to pick a lane &mdash; and refusing.
                     </p>
                     <p>
-                        Meghna didn't create Both/And because she had it all figured out. She created it because she didn't &mdash; and she knew she wasn't alone. She built her life with a husband who carries real load, a fifteen-year nanny who's been part of her family longer than her youngest, and the unshakeable belief that <em class="font-serif">"I do it all alone"</em> is the lie that keeps women stuck. It's never you versus me. It's us versus the world.
+                        Meghna didn't create Both/And because she had it all figured out. She created it because she didn't &mdash; and she knew she wasn't alone. She built her life with a husband who carries real load, a fifteen-year nanny who's been part of her family longer than her youngest, and the unshakeable belief that <em class="font-serif">&ldquo;I do it all alone&rdquo;</em> is the lie that keeps women stuck.
                     </p>
+                </div>
+
+                <!-- Pull quote breaking out -->
+                <blockquote class="my-10 pl-6 border-l-[3px] border-gold">
+                    <p class="font-serif text-2xl md:text-3xl text-ink leading-[1.2]">
+                        It's never you versus me. It's us versus the world.
+                    </p>
+                </blockquote>
+
+                <div class="space-y-6 font-sans text-lg text-muted leading-relaxed">
                     <p>
                         Both/And is the room she wished existed while she was building her practice, raising her family, and learning that asking for help is a strategy, not a weakness. She brings it all here &mdash; not as a guru, but as a guide who still sits in the same chair you do.
                     </p>
