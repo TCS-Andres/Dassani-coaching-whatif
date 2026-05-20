@@ -9,24 +9,31 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9830;</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Allison&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        /* Both/And brand palette (May 2026) — see index.html for full notes */
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cream: '#FDFAF6',
+                        cream: '#F5ECE8',
                         ink: '#1A1A1A',
-                        gold: '#C4955A',
-                        'gold-deep': '#A87B42',
-                        espresso: '#3D2B1F',
-                        linen: '#F5EDE3',
-                        muted: '#7A6B5D',
+                        gold: '#FEB2D7',
+                        'gold-deep': '#52164E',
+                        espresso: '#105742',
+                        linen: '#FFDCEC',
+                        muted: '#6B7280',
+                        pink: '#FEB2D7',
+                        'pink-soft': '#FFDCEC',
+                        plum: '#52164E',
+                        green: '#105742',
+                        navy: '#2F3061',
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        serif: ['DM Serif Display', 'Georgia', 'serif'],
                         sans: ['DM Sans', 'system-ui', 'sans-serif'],
+                        script: ['Allison', 'cursive'],
                     },
                 }
             }
@@ -34,13 +41,14 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'DM Sans', sans-serif; background-color: #FDFAF6; color: #1A1A1A; }
-        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        body { font-family: 'DM Sans', sans-serif; background-color: #F5ECE8; color: #1A1A1A; }
+        .font-serif { font-family: 'DM Serif Display', Georgia, serif; }
+        .font-script { font-family: 'Allison', cursive; }
 
         .field-input {
             width: 100%;
-            background: #FDFAF6;
-            border: 1px solid rgba(196, 149, 90, 0.35);
+            background: #F5ECE8;
+            border: 1px solid rgba(254, 178, 215, 0.35);
             border-radius: 0.75rem;
             padding: 0.85rem 1rem;
             font-family: 'DM Sans', sans-serif;
@@ -48,18 +56,18 @@
             color: #1A1A1A;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
-        .field-input::placeholder { color: #B8A99A; }
+        .field-input::placeholder { color: #9CA3AF; }
         .field-input:focus {
             outline: none;
-            border-color: #C4955A;
-            box-shadow: 0 0 0 4px rgba(196, 149, 90, 0.15);
+            border-color: #FEB2D7;
+            box-shadow: 0 0 0 4px rgba(254, 178, 215, 0.15);
         }
         textarea.field-input { min-height: 140px; resize: vertical; }
 
         .cta-btn { transition: all 0.3s ease; }
         .cta-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 12px 32px rgba(196, 149, 90, 0.35);
+            box-shadow: 0 12px 32px rgba(254, 178, 215, 0.35);
         }
         .cta-btn:disabled {
             opacity: 0.6;
@@ -72,7 +80,7 @@
             100% { background-position: 200% center; }
         }
         .cta-shimmer {
-            background: linear-gradient(110deg, #C4955A 0%, #C4955A 40%, #e8c896 50%, #C4955A 60%, #C4955A 100%);
+            background: linear-gradient(110deg, #FEB2D7 0%, #FEB2D7 40%, #FFDCEC 50%, #FEB2D7 60%, #FEB2D7 100%);
             background-size: 200% 100%;
             animation: shimmer 3s ease-in-out infinite;
         }
@@ -86,12 +94,12 @@
         }
         .orb-1 {
             width: 360px; height: 360px;
-            background: radial-gradient(circle, rgba(196,149,90,0.35), transparent 70%);
+            background: radial-gradient(circle, rgba(254,178,215,0.35), transparent 70%);
             top: -120px; right: -80px;
         }
         .orb-2 {
             width: 280px; height: 280px;
-            background: radial-gradient(circle, rgba(245,237,227,0.55), transparent 70%);
+            background: radial-gradient(circle, rgba(255,220,236,0.55), transparent 70%);
             bottom: -100px; left: -60px;
         }
     </style>
@@ -101,8 +109,7 @@
 <header class="border-b border-linen">
     <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
         <a href="index.html" class="flex items-center gap-3">
-            <img src="images/logo.png" alt="Meghna Dassani" class="h-10">
-            <span class="font-serif text-2xl text-ink">Both/And</span>
+            <img src="images/both-and-logo-pink.png" alt="Both/And" class="h-10 w-10 rounded-md object-cover">
         </a>
         <a href="index.html" class="font-sans text-sm text-muted hover:text-ink transition-colors">
             &larr; Back
@@ -200,7 +207,7 @@
                     </div>
                 </div>
 
-                <button type="submit" id="submitBtn" class="cta-btn cta-shimmer w-full text-white font-sans font-bold text-lg py-4 rounded-full shadow-lg" style="box-shadow: 0 8px 30px rgba(196,149,90,0.35);">
+                <button type="submit" id="submitBtn" class="cta-btn cta-shimmer w-full text-plum font-sans font-bold text-lg py-4 rounded-full shadow-lg" style="box-shadow: 0 8px 30px rgba(254,178,215,0.45);">
                     Submit Application
                 </button>
 
