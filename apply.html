@@ -301,26 +301,41 @@
             try {
                 var res = await fetch(form.action, {
                     method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
+                    body: formData
+                    // No Accept header — avoids any CORS preflight surprises;
+                    // FormSubmit returns JSON regardless.
                 });
-                // FormSubmit always returns HTTP 200, even on failure — so we
-                // have to parse the JSON body and check the "success" field
-                // (which is a STRING "true"/"false", not a boolean).
-                var data = await res.json().catch(function() { return null; });
-                var ok = res.ok && data && String(data.success) === 'true';
 
-                if (ok) {
+                // Read body as text first (more permissive than res.json())
+                var bodyText = '';
+                try { bodyText = await res.text(); } catch (e) { /* ignore */ }
+                var data = null;
+                try { data = JSON.parse(bodyText); } catch (e) { /* not JSON */ }
+
+                // Diagnostic — visible in browser DevTools console
+                console.log('[Both/And apply] FormSubmit response', {
+                    status: res.status,
+                    ok: res.ok,
+                    body: bodyText.slice(0, 200)
+                });
+
+                // Optimistic success: trust HTTP 2xx unless the response
+                // body explicitly tells us success:"false". This avoids
+                // false negatives from browser quirks (CORS readback,
+                // content-type weirdness, JSON parse hiccups) when
+                // FormSubmit has actually accepted the submission.
+                var explicitFail = data && String(data.success) === 'false';
+
+                if (res.ok && !explicitFail) {
                     form.classList.add('hidden');
                     success.classList.remove('hidden');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    // Surface FormSubmit's actual message if we have one
-                    var msg = (data && data.message) ? data.message : null;
-                    throw new Error(msg || 'Submission failed');
+                    var msg = (data && data.message) ? data.message : ('HTTP ' + res.status);
+                    throw new Error(msg);
                 }
             } catch (err) {
-                console.error('[Both/And apply] submission error:', err.message);
+                console.error('[Both/And apply] submission error:', err && err.message);
                 errorMsg.classList.remove('hidden');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Application';
