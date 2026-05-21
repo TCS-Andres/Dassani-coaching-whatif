@@ -304,14 +304,23 @@
                     body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
-                if (res.ok) {
+                // FormSubmit always returns HTTP 200, even on failure — so we
+                // have to parse the JSON body and check the "success" field
+                // (which is a STRING "true"/"false", not a boolean).
+                var data = await res.json().catch(function() { return null; });
+                var ok = res.ok && data && String(data.success) === 'true';
+
+                if (ok) {
                     form.classList.add('hidden');
                     success.classList.remove('hidden');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    throw new Error('Submission failed');
+                    // Surface FormSubmit's actual message if we have one
+                    var msg = (data && data.message) ? data.message : null;
+                    throw new Error(msg || 'Submission failed');
                 }
             } catch (err) {
+                console.error('[Both/And apply] submission error:', err.message);
                 errorMsg.classList.remove('hidden');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Application';
