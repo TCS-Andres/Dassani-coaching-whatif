@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply to Join Both/And — Dr. Meghna Dassani</title>
-    <meta name="description" content="Apply to join Both/And — the curated coaching community for women doctors and healthcare entrepreneurs led by Dr. Meghna Dassani.">
+    <meta name="description" content="Apply to join Both/And — the curated community for women doctors and healthcare entrepreneurs led by Dr. Meghna Dassani.">
     <meta name="robots" content="noindex">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9830;</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Allison&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        /* Both/And brand palette (May 2026) — see index.html for full notes */
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cream: '#FDFAF6',
+                        cream: '#F5ECE8',
                         ink: '#1A1A1A',
-                        gold: '#C4955A',
-                        'gold-deep': '#A87B42',
-                        espresso: '#3D2B1F',
-                        linen: '#F5EDE3',
-                        muted: '#7A6B5D',
+                        gold: '#FEB2D7',
+                        'gold-deep': '#52164E',
+                        espresso: '#105742',
+                        linen: '#FFDCEC',
+                        muted: '#6B7280',
+                        pink: '#FEB2D7',
+                        'pink-soft': '#FFDCEC',
+                        plum: '#52164E',
+                        green: '#105742',
+                        navy: '#2F3061',
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        serif: ['DM Serif Display', 'Georgia', 'serif'],
                         sans: ['DM Sans', 'system-ui', 'sans-serif'],
+                        script: ['Allison', 'cursive'],
                     },
                 }
             }
@@ -34,13 +41,14 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'DM Sans', sans-serif; background-color: #FDFAF6; color: #1A1A1A; }
-        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        body { font-family: 'DM Sans', sans-serif; background-color: #F5ECE8; color: #1A1A1A; }
+        .font-serif { font-family: 'DM Serif Display', Georgia, serif; }
+        .font-script { font-family: 'Allison', cursive; }
 
         .field-input {
             width: 100%;
-            background: #FDFAF6;
-            border: 1px solid rgba(196, 149, 90, 0.35);
+            background: #F5ECE8;
+            border: 1px solid rgba(254, 178, 215, 0.35);
             border-radius: 0.75rem;
             padding: 0.85rem 1rem;
             font-family: 'DM Sans', sans-serif;
@@ -48,18 +56,18 @@
             color: #1A1A1A;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
-        .field-input::placeholder { color: #B8A99A; }
+        .field-input::placeholder { color: #9CA3AF; }
         .field-input:focus {
             outline: none;
-            border-color: #C4955A;
-            box-shadow: 0 0 0 4px rgba(196, 149, 90, 0.15);
+            border-color: #FEB2D7;
+            box-shadow: 0 0 0 4px rgba(254, 178, 215, 0.15);
         }
         textarea.field-input { min-height: 140px; resize: vertical; }
 
         .cta-btn { transition: all 0.3s ease; }
         .cta-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 12px 32px rgba(196, 149, 90, 0.35);
+            box-shadow: 0 12px 32px rgba(254, 178, 215, 0.35);
         }
         .cta-btn:disabled {
             opacity: 0.6;
@@ -72,7 +80,7 @@
             100% { background-position: 200% center; }
         }
         .cta-shimmer {
-            background: linear-gradient(110deg, #C4955A 0%, #C4955A 40%, #e8c896 50%, #C4955A 60%, #C4955A 100%);
+            background: linear-gradient(110deg, #FEB2D7 0%, #FEB2D7 40%, #FFDCEC 50%, #FEB2D7 60%, #FEB2D7 100%);
             background-size: 200% 100%;
             animation: shimmer 3s ease-in-out infinite;
         }
@@ -86,12 +94,12 @@
         }
         .orb-1 {
             width: 360px; height: 360px;
-            background: radial-gradient(circle, rgba(196,149,90,0.35), transparent 70%);
+            background: radial-gradient(circle, rgba(254,178,215,0.35), transparent 70%);
             top: -120px; right: -80px;
         }
         .orb-2 {
             width: 280px; height: 280px;
-            background: radial-gradient(circle, rgba(245,237,227,0.55), transparent 70%);
+            background: radial-gradient(circle, rgba(255,220,236,0.55), transparent 70%);
             bottom: -100px; left: -60px;
         }
     </style>
@@ -101,8 +109,7 @@
 <header class="border-b border-linen">
     <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
         <a href="index.html" class="flex items-center gap-3">
-            <img src="images/logo.png" alt="Meghna Dassani" class="h-10">
-            <span class="font-serif text-2xl text-ink">Both/And</span>
+            <img src="images/both-and-logo-pink.png" alt="Both/And" class="h-10 w-10 rounded-md object-cover">
         </a>
         <a href="index.html" class="font-sans text-sm text-muted hover:text-ink transition-colors">
             &larr; Back
@@ -117,7 +124,7 @@
     <div class="max-w-3xl mx-auto px-6 py-16 md:py-24 relative z-10">
         <div class="text-center mb-12">
             <p class="font-sans text-sm tracking-widest uppercase text-gold mb-4">Apply to join</p>
-            <h1 class="font-serif text-4xl md:text-6xl text-ink mb-6 leading-tight">
+            <h1 class="font-serif capitalize text-4xl md:text-6xl text-ink mb-6 leading-tight">
                 Tell us about you.
             </h1>
             <p class="font-sans text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
@@ -131,6 +138,7 @@
                 <input type="hidden" name="_subject" value="New Both/And application">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_cc" value="andres@mycreativestrategist.com">
                 <!-- Honeypot: real users won't fill this; bots will -->
                 <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
@@ -171,12 +179,40 @@
                     <textarea id="message" name="message" class="field-input" placeholder="A sentence or two on where you are right now and why this room sounds like the one you've been looking for."></textarea>
                 </div>
 
-                <button type="submit" id="submitBtn" class="cta-btn cta-shimmer w-full text-white font-sans font-bold text-lg py-4 rounded-full shadow-lg" style="box-shadow: 0 8px 30px rgba(196,149,90,0.35);">
+                <!-- Founding-member price reminder + live spots counter
+                     (the counter values are synced from js/spots-counter.js) -->
+                <div class="mb-6 p-5 rounded-2xl bg-espresso text-cream">
+                    <div class="flex items-baseline gap-2 mb-1">
+                        <span class="font-sans text-xs tracking-widest uppercase text-gold font-bold">
+                            <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold mr-1 align-middle animate-pulse"></span>
+                            Founding-20 rate
+                        </span>
+                    </div>
+                    <p class="font-sans text-sm text-cream/85 leading-relaxed mb-4">
+                        <span class="font-serif text-2xl text-cream">$597</span><span class="text-cream/70">/month</span>
+                        <span class="text-cream/40 line-through ml-1">$749</span>
+                        &mdash; locked in if your application is accepted while founding spots remain.
+                    </p>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-2 text-xs tracking-widest uppercase">
+                            <span class="text-gold font-semibold">
+                                <span data-spots="claimed">7</span> of <span data-spots="total">20</span> spots claimed
+                            </span>
+                            <span class="text-cream/60"><span data-spots="left">13</span> left</span>
+                        </div>
+                        <div class="h-1.5 rounded-full bg-cream/10 overflow-hidden">
+                            <div data-spots="bar" class="h-full bg-gold rounded-full transition-all duration-700" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="cta-btn cta-shimmer w-full text-plum font-sans font-bold text-lg py-4 rounded-full shadow-lg" style="box-shadow: 0 8px 30px rgba(254,178,215,0.45);">
                     Submit Application
                 </button>
 
                 <p id="formError" class="hidden mt-4 font-sans text-sm text-red-600 text-center">
-                    Something went wrong. Please try again or email <a href="mailto:hello@meghnadassani.com" class="underline">hello@meghnadassani.com</a>.
+                    Something went wrong. Please try again or email <a href="mailto:meghna@meghnadassani.com" class="underline">meghna@meghnadassani.com</a>.
                 </p>
 
                 <p class="font-sans text-xs text-muted text-center mt-6">
@@ -190,7 +226,7 @@
                         <polyline points="20 6 9 17 4 12"/>
                     </svg>
                 </div>
-                <h2 class="font-serif text-3xl md:text-4xl text-ink mb-4">Your application is in.</h2>
+                <h2 class="font-serif capitalize text-3xl md:text-4xl text-ink mb-4">Your application is in.</h2>
                 <p class="font-sans text-lg text-muted leading-relaxed max-w-xl mx-auto mb-8">
                     Dr. Dassani personally reviews every application. You'll hear from her within 24 to 48 hours so the two of you can talk through fit and next steps.
                 </p>
@@ -265,17 +301,41 @@
             try {
                 var res = await fetch(form.action, {
                     method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
+                    body: formData
+                    // No Accept header — avoids any CORS preflight surprises;
+                    // FormSubmit returns JSON regardless.
                 });
-                if (res.ok) {
+
+                // Read body as text first (more permissive than res.json())
+                var bodyText = '';
+                try { bodyText = await res.text(); } catch (e) { /* ignore */ }
+                var data = null;
+                try { data = JSON.parse(bodyText); } catch (e) { /* not JSON */ }
+
+                // Diagnostic — visible in browser DevTools console
+                console.log('[Both/And apply] FormSubmit response', {
+                    status: res.status,
+                    ok: res.ok,
+                    body: bodyText.slice(0, 200)
+                });
+
+                // Optimistic success: trust HTTP 2xx unless the response
+                // body explicitly tells us success:"false". This avoids
+                // false negatives from browser quirks (CORS readback,
+                // content-type weirdness, JSON parse hiccups) when
+                // FormSubmit has actually accepted the submission.
+                var explicitFail = data && String(data.success) === 'false';
+
+                if (res.ok && !explicitFail) {
                     form.classList.add('hidden');
                     success.classList.remove('hidden');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    throw new Error('Submission failed');
+                    var msg = (data && data.message) ? data.message : ('HTTP ' + res.status);
+                    throw new Error(msg);
                 }
             } catch (err) {
+                console.error('[Both/And apply] submission error:', err && err.message);
                 errorMsg.classList.remove('hidden');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Application';
@@ -283,6 +343,9 @@
         });
     })();
 </script>
+
+<!-- Founding-member spots counter (shared with index.html) -->
+<script src="js/spots-counter.js"></script>
 
 </body>
 </html>
