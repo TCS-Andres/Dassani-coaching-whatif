@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply to Join Both/And — Dr. Meghna Dassani</title>
-    <meta name="description" content="Apply to join Both/And — the curated community for women doctors and healthcare entrepreneurs led by Dr. Meghna Dassani.">
+    <title>Apply to Join Both/And: Dr. Meghna Dassani</title>
+    <meta name="description" content="Apply to join Both/And: the curated peer space for women doctors and healthcare entrepreneurs led by Dr. Meghna Dassani.">
     <meta name="robots" content="noindex">
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, Slack, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Both/And">
+    <meta property="og:url" content="https://www.joinbothand.com/apply">
+    <meta property="og:title" content="Apply to Join Both/And: Dr. Meghna Dassani">
+    <meta property="og:description" content="Apply to join Both/And: the curated peer space for women doctors and healthcare entrepreneurs led by Dr. Meghna Dassani.">
+    <meta property="og:image" content="https://www.joinbothand.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dr. Meghna Dassani, founder of Both/And: the peer space for women in healthcare">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apply to Join Both/And: Dr. Meghna Dassani">
+    <meta name="twitter:description" content="A curated, by-application peer space for women doctors and healthcare entrepreneurs.">
+    <meta name="twitter:image" content="https://www.joinbothand.com/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="Dr. Meghna Dassani, founder of Both/And: the peer space for women in healthcare">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9830;</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,10 +126,10 @@
 
 <header class="border-b border-linen">
     <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-3">
             <img src="images/both-and-logo-pink.png" alt="Both/And" class="h-10 w-10 rounded-md object-cover">
         </a>
-        <a href="index.html" class="font-sans text-sm text-muted hover:text-ink transition-colors">
+        <a href="/" class="font-sans text-sm text-muted hover:text-ink transition-colors">
             &larr; Back
         </a>
     </div>
@@ -128,19 +146,23 @@
                 Tell us about you.
             </h1>
             <p class="font-sans text-lg md:text-xl text-muted leading-relaxed max-w-2xl mx-auto">
-                Both/And is a curated community, so every prospective member applies. Share a few details below and Dr. Dassani will personally be in touch within 24 to 48 hours to talk through fit and answer your questions.
+                Both/And is a curated, by-application peer space, so every prospective member applies. Share a few details below and Dr. Dassani will personally be in touch within 24 to 48 hours to talk through fit and answer your questions.
             </p>
         </div>
 
         <div class="bg-linen rounded-2xl p-8 md:p-12 shadow-sm">
-            <form id="applyForm" method="POST" action="https://formsubmit.co/ajax/meghna@meghnadassani.com" novalidate>
-                <!-- FormSubmit configuration -->
-                <input type="hidden" name="_subject" value="New Both/And application">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_cc" value="andres@mycreativestrategist.com">
-                <!-- Honeypot: real users won't fill this; bots will -->
-                <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+            <form id="applyForm" method="POST" action="https://api.web3forms.com/submit" novalidate>
+                <!-- Web3Forms configuration. The access_key is tied to
+                     meghna@meghnadassani.com (set at signup on web3forms.com),
+                     so submissions deliver to her inbox. CC includes Andres.
+                     Works on any domain — no per-domain activation. -->
+                <input type="hidden" name="access_key" value="0fcef17b-3b32-4cf8-a9e8-422aed7dc398">
+                <input type="hidden" name="subject" value="New Both/And application">
+                <input type="hidden" name="from_name" value="Both/And site">
+                <input type="hidden" name="cc" value="andres@mycreativestrategist.com">
+                <!-- Honeypot: real users won't fill this; bots will. Web3Forms
+                     reads this field name natively for spam protection. -->
+                <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
                 <div class="grid md:grid-cols-2 gap-5 mb-5">
                     <div>
@@ -185,19 +207,18 @@
                     <div class="flex items-baseline gap-2 mb-1">
                         <span class="font-sans text-xs tracking-widest uppercase text-gold font-bold">
                             <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold mr-1 align-middle animate-pulse"></span>
-                            Founding-20 rate
+                            Founding 20 &middot; Locked-in rate
                         </span>
                     </div>
                     <p class="font-sans text-sm text-cream/85 leading-relaxed mb-4">
-                        <span class="font-serif text-2xl text-cream">$597</span><span class="text-cream/70">/month</span>
-                        <span class="text-cream/40 line-through ml-1">$749</span>
-                        &mdash; locked in if your application is accepted while founding spots remain.
+                        <span class="font-serif text-2xl text-cream">$497</span><span class="text-cream/70">/month</span>.
+                        Founding rate for the first 20 members. Once those spots are filled, the price increases. Founding members keep the original rate.
                     </p>
 
                     <div>
                         <div class="flex items-center justify-between mb-2 text-xs tracking-widest uppercase">
                             <span class="text-gold font-semibold">
-                                <span data-spots="claimed">7</span> of <span data-spots="total">20</span> spots claimed
+                                <span data-spots="claimed">7</span> of <span data-spots="total">20</span> founding spots claimed
                             </span>
                             <span class="text-cream/60"><span data-spots="left">13</span> left</span>
                         </div>
@@ -230,7 +251,7 @@
                 <p class="font-sans text-lg text-muted leading-relaxed max-w-xl mx-auto mb-8">
                     Dr. Dassani personally reviews every application. You'll hear from her within 24 to 48 hours so the two of you can talk through fit and next steps.
                 </p>
-                <a href="index.html" class="font-sans text-sm font-semibold text-gold hover:text-gold-deep transition-colors">
+                <a href="/" class="font-sans text-sm font-semibold text-gold hover:text-gold-deep transition-colors">
                     &larr; Back to Both/And
                 </a>
             </div>
@@ -252,26 +273,22 @@
 
 <script>
     // ============================================================
-    // FORM SUBMISSION — FormSubmit.co
+    // FORM SUBMISSION — Web3Forms
     // ------------------------------------------------------------
-    // Applications POST to FormSubmit's AJAX endpoint and are
-    // delivered to: meghna@meghnadassani.com
+    // Applications POST to api.web3forms.com/submit. The access_key
+    // (hidden field in the form) is tied to meghna@meghnadassani.com
+    // at signup, so submissions are delivered to her inbox. The `cc`
+    // field copies andres@mycreativestrategist.com on every email.
     //
-    // First-time setup:
-    //   1. Submit the form once (real submission). FormSubmit will
-    //      send a verification email to meghna@meghnadassani.com.
-    //   2. Click the verification link in that email. Done — all
-    //      future submissions arrive in her inbox automatically.
+    // No per-domain activation — works on www.joinbothand.com, the
+    // bare domain, preview deployments, and any future domain. This
+    // is the durable replacement for FormSubmit, which required a
+    // separate activation click per origin and went down for hours
+    // at a time.
     //
-    // Optional hardening (recommended after verification):
-    //   FormSubmit will also email a hashed alias URL like
-    //   https://formsubmit.co/ajax/abc123randomhash. Replace the
-    //   email in the form's `action` attribute with that hashed
-    //   URL so meghna@meghnadassani.com isn't visible in the page
-    //   source (helps with email-scraping bots).
-    //
-    // The JS below also handles any endpoint (Formspree, etc.)
-    // that accepts a POST and returns a 200-range status.
+    // Web3Forms returns JSON: { success: true|false, message: "..." }
+    // The optimistic-success check below treats HTTP 2xx as success
+    // unless the body explicitly reports success: false.
     // ============================================================
     (function() {
         var form = document.getElementById('applyForm');
@@ -303,7 +320,7 @@
                     method: 'POST',
                     body: formData
                     // No Accept header — avoids any CORS preflight surprises;
-                    // FormSubmit returns JSON regardless.
+                    // Web3Forms returns JSON regardless.
                 });
 
                 // Read body as text first (more permissive than res.json())
@@ -313,17 +330,16 @@
                 try { data = JSON.parse(bodyText); } catch (e) { /* not JSON */ }
 
                 // Diagnostic — visible in browser DevTools console
-                console.log('[Both/And apply] FormSubmit response', {
+                console.log('[Both/And apply] Web3Forms response', {
                     status: res.status,
                     ok: res.ok,
                     body: bodyText.slice(0, 200)
                 });
 
                 // Optimistic success: trust HTTP 2xx unless the response
-                // body explicitly tells us success:"false". This avoids
-                // false negatives from browser quirks (CORS readback,
-                // content-type weirdness, JSON parse hiccups) when
-                // FormSubmit has actually accepted the submission.
+                // body explicitly tells us success === false. Web3Forms
+                // returns a boolean (Stringify handles both bool and string
+                // shapes so this also worked for FormSubmit historically).
                 var explicitFail = data && String(data.success) === 'false';
 
                 if (res.ok && !explicitFail) {
